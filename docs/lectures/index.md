@@ -1,12 +1,24 @@
-# Lectures
+# Course structure
 
-Complete lecture notes for the Data Science course.
+Complete notes for the PA Academy Data Science course.
 
-## 📅 Available Lectures
+## Course Outline
 
-- [Lecture 01: Environment Setup](Lecture01_Environment_Setup.md)
+- [Course Outline](course_outline.md)
 
-More lectures will be added throughout the semester.
+
+## Lecture Notes
+
+- [Lecture 01: Introduction to Data](Lecture01_data_and_sources.md)
+- [Lecture 01: Introduction to Big Data Ecosystem](Lecture01_big_data_ecosystem.md)
+
+## Slides
+
+- [Lecture 01 Slides](Lecture01_Slides.html)
+
+
+
+More lectures will be added throughout the course period.
 
 ---
 
