@@ -1,0 +1,3078 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete Data Science Course Materials">
+      
+      
+        <meta name="author" content="Lida Aristakesyan">
+      
+      
+        <link rel="canonical" href="https://lidaristakesyan.github.io/data-science-course/lectures/Lecture01_data_and_sources/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Introduction to Data Science - Data Science Course</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-to-data-science" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Data Science Course" class="md-header__button md-logo" aria-label="Data Science Course" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Data Science Course
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction to Data Science
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lidaristakesyan/data-science-course" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lidaristakesyan/data-science-course
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lectures
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Data Science Course" class="md-nav__button md-logo" aria-label="Data Science Course" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Data Science Course
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lidaristakesyan/data-science-course" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lidaristakesyan/data-science-course
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-data-roles-and-career-paths" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Data, Roles, and Career Paths
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table of Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-what-is-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. What is Data?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. What is Data?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simple-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simple Definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples-from-daily-life" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples from Daily Life
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-data-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Data Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-types-of-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Types of Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Types of Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-by-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 By Structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 By Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structured-data-organized-table-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structured Data (Organized, Table Format)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semi-structured-data-partially-organized" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semi-Structured Data (Partially Organized)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unstructured-data-no-predefined-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unstructured Data (No Predefined Structure)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-by-mathematical-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 By Mathematical Representation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 By Mathematical Representation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scalar-single-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scalar (Single Value)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-1d-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector (1D Array)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrix-2d-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matrix (2D Array)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tensor-multi-dimensional-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tensor (Multi-Dimensional Array)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-by-data-modality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 By Data Modality
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 By Data Modality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabular-data-most-common-in-data-science" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabular Data (Most Common in Data Science)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-data-natural-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Text Data (Natural Language)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#video-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Video Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audio-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audio Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-series-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Series Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graphnetwork-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Graph/Network Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-data-types-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary: Data Types at a Glance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-how-data-is-generated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. How Data is Generated
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. How Data is Generated">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-human-generated-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Human-Generated Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-machine-generated-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Machine-Generated Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-process-generated-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Process-Generated Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-experimental-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Experimental Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-generation-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Generation Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-traditional-data-vs-big-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Traditional Data vs Big Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Traditional Data vs Big Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-traditional-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Traditional Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-big-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Big Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-do-you-need-big-data-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When Do You Need Big Data Tools?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-understanding-events-and-data-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Understanding Events and Data Generation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Understanding Events and Data Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-an-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is an Event?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event Components
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6the-data-journey-from-events-to-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.The Data Journey - From Events to Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.The Data Journey - From Events to Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-complete-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Complete Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-1-event-capture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 1: Event Capture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-2-data-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 2: Data Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-3-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 3: Processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-event-driven-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7: Event-Driven Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7: Event-Driven Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-sourcing-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event Sourcing Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-data-streams-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple Data Streams Challenge
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-data-lineage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8: Data Lineage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8: Data Lineage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-data-lineage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Data Lineage?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-lineage-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Lineage Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-common-challenges-in-event-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9: Common Challenges in Event Tracking
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9: Common Challenges in Event Tracking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-timing-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Timing Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-data-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Data Volume
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-privacy-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Privacy &amp; Compliance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-incomplete-event-capture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Incomplete Event Capture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-schema-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Schema Evolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-best-practices-for-data-scientists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10: Best Practices for Data Scientists
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10: Best Practices for Data Scientists">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-understand-data-provenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Understand Data Provenance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-validate-data-quality-early" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Validate Data Quality Early
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cross-reference-multiple-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Cross-Reference Multiple Sources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-document-assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Document Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-consider-privacy-from-the-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Consider Privacy from the Start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-design-for-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Design for Evolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-monitor-data-freshness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Monitor Data Freshness
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-event-design-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11: Event Design Guidelines
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11: Event Design Guidelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Naming Conventions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-working-with-event-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12: Working with Event Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12: Working with Event Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sessionization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sessionization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funnel-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Funnel Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cohort-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cohort Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attribution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-key-metrics-to-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13: Key Metrics to Monitor
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13: Key Metrics to Monitor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-are-metrics-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Are Metrics Trees?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-architecture-of-metrics-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Architecture of Metrics Trees
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-metrics-trees-transform-ml-success" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Metrics Trees Transform ML Success
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comprehensive-tracking-in-mlai-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprehensive Tracking in ML/AI Projects
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-world-examples-metrics-trees-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-World Examples: Metrics Trees in Practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-common-pitfalls-to-avoid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14: Common Pitfalls to Avoid
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14: Common Pitfalls to Avoid">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dont-do-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ Don't Do This:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-this-instead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Do This Instead:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-data-tracking-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15: Data Tracking Checklist
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15: Data Tracking Checklist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#during-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        During Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Takeaways">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further topics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-data-quality-and-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Data Quality and Preparation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Data Quality and Preparation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-data-quality-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Data Quality Matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-data-quality-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Data Quality Issues
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Data Quality Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-missing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Missing Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-inconsistent-formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Inconsistent Formatting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-duplicate-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Duplicate Records
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-outliers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Outliers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-noise-and-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Noise and Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-preparation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Preparation Steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-data-collection-gather-from-sources-2-data-cleaning-fix-errors-missing-values-outliers-3-data-integration-combine-from-multiple-sources-4-data-transformation-normalize-encode-scale-5-data-reduction-select-relevant-features-6-data-validation-verify-quality-and-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Data Collection → Gather from sources 2. Data Cleaning → Fix errors, missing values, outliers 3. Data Integration → Combine from multiple sources 4. Data Transformation → Normalize, encode, scale 5. Data Reduction → Select relevant features 6. Data Validation → Verify quality and consistency
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-roles-in-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Roles in Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Roles in Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-data-analyst" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Data Analyst
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-data-engineer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Data Engineer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-data-scientist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Data Scientist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-machine-learning-engineer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Machine Learning Engineer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-ml-scientistresearcher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 ML Scientist/Researcher
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-comparison-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Role Comparison Table
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-scientist-vs-ml-engineer-key-differences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Scientist vs ML Engineer: Key Differences
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-what-is-data-science" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. What is Data Science?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. What is Data Science?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-data-science-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Data Science Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-science-skillset-venn-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Science Skillset (Venn Diagram)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="introduction-to-data-science">Introduction to Data Science<a class="headerlink" href="#introduction-to-data-science" title="Permanent link">&para;</a></h1>
+<h2 id="understanding-data-roles-and-career-paths">Understanding Data, Roles, and Career Paths<a class="headerlink" href="#understanding-data-roles-and-career-paths" title="Permanent link">&para;</a></h2>
+<p><em>Duration: 30-minute introduction</em><br />
+<em>Course: Advanced Data Science Techniques and Applications</em></p>
+<hr />
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#what-is-data">What is Data?</a></li>
+<li><a href="#types-of-data">Types of Data</a></li>
+<li><a href="#how-data-is-generated">How Data is Generated</a></li>
+<li><a href="#small-data-vs-big-data">Small Data vs Big Data</a></li>
+<li><a href="#data-quality-and-preparation">Data Quality and Preparation</a></li>
+<li><a href="#roles-in-data">Roles in Data</a></li>
+<li><a href="#what-is-data-science">What is Data Science?</a></li>
+<li><a href="#course-overview">Course Overview</a></li>
+<li><a href="#career-paths">Career Paths</a></li>
+</ol>
+<hr />
+<h2 id="1-what-is-data">1. What is Data?<a class="headerlink" href="#1-what-is-data" title="Permanent link">&para;</a></h2>
+<p><strong>Data is raw facts, observations, or measurements that represent real-world phenomena.</strong></p>
+<h3 id="simple-definition">Simple Definition<a class="headerlink" href="#simple-definition" title="Permanent link">&para;</a></h3>
+<p>Data is any information that can be stored, processed, and analyzed to gain insights or make decisions.</p>
+<h3 id="examples-from-daily-life">Examples from Daily Life<a class="headerlink" href="#examples-from-daily-life" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Shopping</strong>: Your purchase history (what, when, how much)</li>
+<li><strong>Social Media</strong>: Your posts, likes, comments, followers</li>
+<li><strong>Health</strong>: Heart rate, blood pressure, sleep patterns</li>
+<li><strong>Transportation</strong>: GPS locations, travel times, routes</li>
+<li><strong>Banking</strong>: Transactions, account balances, payment history</li>
+</ul>
+<h3 id="why-data-matters">Why Data Matters<a class="headerlink" href="#why-data-matters" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Raw Data → Information → Knowledge → Wisdom → Decisions
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Example:
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Raw Data:      Temperature readings: 36.5°C, 38.2°C, 39.1°C
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Information:   Temperature is rising
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Knowledge:     Patient likely has fever
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Wisdom:        Based on pattern, might be viral infection
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>Decision:      Recommend fever medication and rest
+</code></pre></div>
+<p><strong>Key Insight</strong>: Good data is the foundation of all data science work. Bad data = Bad insights = Bad decisions.</p>
+<hr />
+<h2 id="2-types-of-data">2. Types of Data<a class="headerlink" href="#2-types-of-data" title="Permanent link">&para;</a></h2>
+<p>Data comes in many forms. Understanding data types is crucial for choosing the right analysis techniques and algorithms.</p>
+<h3 id="21-by-structure">2.1 By Structure<a class="headerlink" href="#21-by-structure" title="Permanent link">&para;</a></h3>
+<h4 id="structured-data-organized-table-format"><strong>Structured Data</strong> (Organized, Table Format)<a class="headerlink" href="#structured-data-organized-table-format" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Stored in rows and columns</li>
+<li>Easy to search and analyze</li>
+<li>Examples: Databases, spreadsheets, CSV files</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>| CustomerID | Name    | Age | Purchase |
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>|------------|---------|-----|----------|
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>| 001        | Alice   | 25  | $150     |
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>| 002        | Bob     | 30  | $200     |
+</code></pre></div>
+<h4 id="semi-structured-data-partially-organized"><strong>Semi-Structured Data</strong> (Partially Organized)<a class="headerlink" href="#semi-structured-data-partially-organized" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Has some structure but not rigid</li>
+<li>Examples: JSON, XML, logs</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;customer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;purchases&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;item&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;laptop&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;price&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">},</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;item&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mouse&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;price&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">}</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="unstructured-data-no-predefined-structure"><strong>Unstructured Data</strong> (No Predefined Structure)<a class="headerlink" href="#unstructured-data-no-predefined-structure" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Most complex to analyze</li>
+<li>Requires special processing techniques</li>
+<li>Examples: Text, images, videos, audio</li>
+</ul>
+<hr />
+<h3 id="22-by-mathematical-representation">2.2 By Mathematical Representation<a class="headerlink" href="#22-by-mathematical-representation" title="Permanent link">&para;</a></h3>
+<p>Understanding how data is represented mathematically is essential for algorithm development.</p>
+<h4 id="scalar-single-value"><strong>Scalar (Single Value)</strong><a class="headerlink" href="#scalar-single-value" title="Permanent link">&para;</a></h4>
+<p>A single numerical value.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Examples</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">temperature</span> <span class="o">=</span> <span class="mf">36.5</span>      <span class="c1"># Body temperature</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">price</span> <span class="o">=</span> <span class="mf">99.99</span>           <span class="c1"># Product price</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">age</span> <span class="o">=</span> <span class="mi">25</span>                <span class="c1"># Person&#39;s age</span>
+</code></pre></div>
+<p><strong>When Used</strong>: Individual measurements, single predictions</p>
+<hr />
+<h4 id="vector-1d-array"><strong>Vector (1D Array)</strong><a class="headerlink" href="#vector-1d-array" title="Permanent link">&para;</a></h4>
+<p>A list of numbers representing multiple values of the same type.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Examples</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">temperatures</span> <span class="o">=</span> <span class="p">[</span><span class="mf">36.5</span><span class="p">,</span> <span class="mf">36.8</span><span class="p">,</span> <span class="mf">37.1</span><span class="p">,</span> <span class="mf">36.9</span><span class="p">]</span>  <span class="c1"># Daily temperatures</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">prices</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>                <span class="c1"># Product prices</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span>                  <span class="c1"># Age, height, weight</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># Real-world: Customer feature vector</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">customer</span> <span class="o">=</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50000</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># [age, income, years_customer, has_premium]</span>
+</code></pre></div>
+<p><strong>When Used</strong>: Time series, feature vectors for ML, word embeddings</p>
+<hr />
+<h4 id="matrix-2d-array"><strong>Matrix (2D Array)</strong><a class="headerlink" href="#matrix-2d-array" title="Permanent link">&para;</a></h4>
+<p>A table of numbers arranged in rows and columns.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Example: Student grades (rows=students, columns=subjects)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">grades</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">78</span><span class="p">],</span>  <span class="c1"># Student 1: Math, Science, English</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="p">[</span><span class="mi">92</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">95</span><span class="p">],</span>  <span class="c1"># Student 2</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="p">[</span><span class="mi">78</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">82</span><span class="p">]</span>   <span class="c1"># Student 3</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">]</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1"># Example: Image (grayscale 3x3 pixels)</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="n">image</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="p">[</span><span class="mi">64</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">32</span><span class="p">],</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">]</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="p">]</span>
+</code></pre></div>
+<p><strong>When Used</strong>: Datasets, images (grayscale), spreadsheets, correlation matrices</p>
+<hr />
+<h4 id="tensor-multi-dimensional-array"><strong>Tensor (Multi-Dimensional Array)</strong><a class="headerlink" href="#tensor-multi-dimensional-array" title="Permanent link">&para;</a></h4>
+<p>Extension of matrices to 3 or more dimensions.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Example: Color image (Height × Width × Channels)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># 2x2 RGB image</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">color_image</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="p">[[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>      <span class="c1"># Row 1: Red, Green</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>     <span class="c1"># Row 2: Blue, Yellow</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">]</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Shape: (2, 2, 3) → 2 rows, 2 columns, 3 color channels</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1"># Example: Video (Time × Height × Width × Channels)</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">video</span> <span class="o">=</span> <span class="p">[</span><span class="n">frame1</span><span class="p">,</span> <span class="n">frame2</span><span class="p">,</span> <span class="n">frame3</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="c1"># Shape: (30, 1920, 1080, 3) → 30 frames, 1920x1080 pixels, RGB</span>
+</code></pre></div>
+<p><strong>When Used</strong>: Deep learning, images, videos, time-series with multiple features</p>
+<hr />
+<h3 id="23-by-data-modality">2.3 By Data Modality<a class="headerlink" href="#23-by-data-modality" title="Permanent link">&para;</a></h3>
+<h4 id="tabular-data-most-common-in-data-science"><strong>Tabular Data</strong> (Most Common in Data Science)<a class="headerlink" href="#tabular-data-most-common-in-data-science" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Structured in rows and columns</li>
+<li>Each row = observation/record</li>
+<li>Each column = feature/variable</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>| Date       | Product | Sales | Region |
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>|------------|---------|-------|--------|
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>| 2024-01-01 | Laptop  | 50    | North  |
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>| 2024-01-01 | Phone   | 120   | South  |
+</code></pre></div>
+<p><strong>Tools</strong>: Pandas, SQL, Excel<br />
+<strong>Algorithms</strong>: Linear Regression, Random Forest, XGBoost</p>
+<hr />
+<h4 id="text-data-natural-language"><strong>Text Data</strong> (Natural Language)<a class="headerlink" href="#text-data-natural-language" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Unstructured language data</li>
+<li>Requires preprocessing (tokenization, cleaning)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Examples:
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>- Customer reviews: &quot;Great product! Fast shipping.&quot;
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>- Emails, social media posts, articles
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>- Chat conversations, documentation
+</code></pre></div>
+<p><strong>Tools</strong>: NLTK, spaCy, Transformers<br />
+<strong>Algorithms</strong>: NLP models, BERT, GPT, Sentiment Analysis</p>
+<hr />
+<h4 id="image-data"><strong>Image Data</strong><a class="headerlink" href="#image-data" title="Permanent link">&para;</a></h4>
+<ul>
+<li>2D array of pixels (grayscale) or 3D array (color)</li>
+<li>Each pixel has intensity values</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Grayscale image: Height × Width (2D matrix)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">grayscale</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span> <span class="p">[</span><span class="mi">64</span><span class="p">,</span> <span class="mi">192</span><span class="p">,</span> <span class="mi">32</span><span class="p">]]</span>  <span class="c1"># 2x3 image</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Color image: Height × Width × Channels (3D tensor)</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="n">color</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="p">[[</span><span class="n">R1</span><span class="p">,</span> <span class="n">G1</span><span class="p">,</span> <span class="n">B1</span><span class="p">],</span> <span class="p">[</span><span class="n">R2</span><span class="p">,</span> <span class="n">G2</span><span class="p">,</span> <span class="n">B2</span><span class="p">]],</span>  <span class="c1"># Row 1</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    <span class="p">[[</span><span class="n">R3</span><span class="p">,</span> <span class="n">G3</span><span class="p">,</span> <span class="n">B3</span><span class="p">],</span> <span class="p">[</span><span class="n">R4</span><span class="p">,</span> <span class="n">G4</span><span class="p">,</span> <span class="n">B4</span><span class="p">]]</span>   <span class="c1"># Row 2</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="p">]</span>
+</code></pre></div>
+<p><strong>Applications</strong>: Medical imaging, face recognition, object detection<br />
+<strong>Tools</strong>: OpenCV, PIL, TensorFlow<br />
+<strong>Algorithms</strong>: CNNs, ResNet, YOLO</p>
+<hr />
+<h4 id="video-data"><strong>Video Data</strong><a class="headerlink" href="#video-data" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Sequence of images (frames) over time</li>
+<li>4D tensor: Time × Height × Width × Channels</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Video = sequence of frames</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">video</span> <span class="o">=</span> <span class="p">[</span><span class="n">frame1</span><span class="p">,</span> <span class="n">frame2</span><span class="p">,</span> <span class="n">frame3</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1"># Each frame is an image (H × W × C)</span>
+</code></pre></div>
+<p><strong>Applications</strong>: Surveillance, action recognition, video analysis<br />
+<strong>Tools</strong>: OpenCV, FFmpeg, PyTorch<br />
+<strong>Algorithms</strong>: 3D CNNs, RNNs, Video Transformers</p>
+<hr />
+<h4 id="audio-data"><strong>Audio Data</strong><a class="headerlink" href="#audio-data" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Sound represented as waveforms or spectrograms</li>
+<li>1D signal (time series) or 2D (spectrogram)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Audio waveform: amplitude values over time</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">audio_signal</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>  <span class="c1"># Vector</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Spectrogram: frequency components over time</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="n">spectrogram</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="p">[</span><span class="n">freq1_t1</span><span class="p">,</span> <span class="n">freq2_t1</span><span class="p">,</span> <span class="n">freq3_t1</span><span class="p">],</span>  <span class="c1"># Time 1</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    <span class="p">[</span><span class="n">freq1_t2</span><span class="p">,</span> <span class="n">freq2_t2</span><span class="p">,</span> <span class="n">freq3_t2</span><span class="p">]</span>   <span class="c1"># Time 2</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="p">]</span>  <span class="c1"># Matrix</span>
+</code></pre></div>
+<p><strong>Applications</strong>: Speech recognition, music classification<br />
+<strong>Tools</strong>: Librosa, PyAudio, TensorFlow Audio<br />
+<strong>Algorithms</strong>: RNNs, WaveNet, Speech-to-Text</p>
+<hr />
+<h4 id="time-series-data"><strong>Time Series Data</strong><a class="headerlink" href="#time-series-data" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Data points indexed by time</li>
+<li>Sequential observations with temporal dependencies</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Stock prices over time</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">dates</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2024-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2024-01-02&#39;</span><span class="p">,</span> <span class="s1">&#39;2024-01-03&#39;</span><span class="p">]</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">prices</span> <span class="o">=</span> <span class="p">[</span><span class="mf">150.5</span><span class="p">,</span> <span class="mf">152.3</span><span class="p">,</span> <span class="mf">149.8</span><span class="p">]</span>  <span class="c1"># Vector</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1"># Multivariate time series (multiple sensors)</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="n">sensor_data</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>    <span class="p">[</span><span class="n">temp1</span><span class="p">,</span> <span class="n">humidity1</span><span class="p">,</span> <span class="n">pressure1</span><span class="p">],</span>  <span class="c1"># Time 1</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>    <span class="p">[</span><span class="n">temp2</span><span class="p">,</span> <span class="n">humidity2</span><span class="p">,</span> <span class="n">pressure2</span><span class="p">],</span>  <span class="c1"># Time 2</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>    <span class="p">[</span><span class="n">temp3</span><span class="p">,</span> <span class="n">humidity3</span><span class="p">,</span> <span class="n">pressure3</span><span class="p">]</span>   <span class="c1"># Time 3</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="p">]</span>  <span class="c1"># Matrix</span>
+</code></pre></div>
+<p><strong>Applications</strong>: Stock prediction, weather forecasting, IoT<br />
+<strong>Tools</strong>: Pandas, Prophet, statsmodels<br />
+<strong>Algorithms</strong>: ARIMA, LSTM, GRU</p>
+<hr />
+<h4 id="graphnetwork-data"><strong>Graph/Network Data</strong><a class="headerlink" href="#graphnetwork-data" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Nodes (entities) and edges (relationships)</li>
+<li>Represents connections and interactions</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Example: Social Network
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Nodes: People (Alice, Bob, Charlie)
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>Edges: Friendships (Alice → Bob, Bob → Charlie)
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    Alice ──── Bob
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>              /
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>         Charlie
+</code></pre></div>
+<p><strong>Applications</strong>: Social networks, recommendation systems<br />
+<strong>Tools</strong>: NetworkX, Neo4j, PyTorch Geometric<br />
+<strong>Algorithms</strong>: Graph Neural Networks (GNNs), PageRank</p>
+<hr />
+<h3 id="summary-data-types-at-a-glance">Summary: Data Types at a Glance<a class="headerlink" href="#summary-data-types-at-a-glance" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Mathematical Form</th>
+<th>Example</th>
+<th>Common Tools</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Scalar</strong></td>
+<td>Single value</td>
+<td>Temperature: 36.5</td>
+<td>NumPy</td>
+</tr>
+<tr>
+<td><strong>Vector</strong></td>
+<td>1D array</td>
+<td>[25, 170, 70]</td>
+<td>NumPy, Pandas</td>
+</tr>
+<tr>
+<td><strong>Matrix</strong></td>
+<td>2D array</td>
+<td>Spreadsheet, grayscale image</td>
+<td>NumPy, Pandas</td>
+</tr>
+<tr>
+<td><strong>Tensor</strong></td>
+<td>3D+ array</td>
+<td>Color image, video</td>
+<td>TensorFlow, PyTorch</td>
+</tr>
+<tr>
+<td><strong>Tabular</strong></td>
+<td>Rows × Columns</td>
+<td>CSV, SQL database</td>
+<td>Pandas, SQL</td>
+</tr>
+<tr>
+<td><strong>Text</strong></td>
+<td>String/sequence</td>
+<td>"Hello world"</td>
+<td>NLTK, spaCy</td>
+</tr>
+<tr>
+<td><strong>Image</strong></td>
+<td>H × W × C</td>
+<td>Photo, X-ray</td>
+<td>OpenCV, PIL</td>
+</tr>
+<tr>
+<td><strong>Video</strong></td>
+<td>T × H × W × C</td>
+<td>Movie, surveillance</td>
+<td>OpenCV, FFmpeg</td>
+</tr>
+<tr>
+<td><strong>Audio</strong></td>
+<td>Waveform/spectrogram</td>
+<td>Music, speech</td>
+<td>Librosa</td>
+</tr>
+<tr>
+<td><strong>Time Series</strong></td>
+<td>Temporal sequence</td>
+<td>Stock prices</td>
+<td>Pandas, Prophet</td>
+</tr>
+<tr>
+<td><strong>Graph</strong></td>
+<td>Nodes + Edges</td>
+<td>Social network</td>
+<td>NetworkX</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-how-data-is-generated">3. How Data is Generated<a class="headerlink" href="#3-how-data-is-generated" title="Permanent link">&para;</a></h2>
+<p>Understanding data sources helps you identify quality issues and collection strategies.</p>
+<h3 id="31-human-generated-data">3.1 Human-Generated Data<a class="headerlink" href="#31-human-generated-data" title="Permanent link">&para;</a></h3>
+<p>Created directly by humans through interactions.</p>
+<p><strong>Examples</strong>:
+- <strong>Social Media</strong>: Posts, comments, likes, shares
+- <strong>E-commerce</strong>: Product reviews, ratings, wishlists
+- <strong>Surveys</strong>: Customer feedback, questionnaires
+- <strong>Manual Entry</strong>: Forms, registrations, reports</p>
+<p><strong>Characteristics</strong>:
+- ✓ Rich contextual information
+- ✓ Subjective opinions and sentiments
+- ✗ Prone to errors, bias, and inconsistencies
+- ✗ May have missing or incomplete data</p>
+<hr />
+<h3 id="32-machine-generated-data">3.2 Machine-Generated Data<a class="headerlink" href="#32-machine-generated-data" title="Permanent link">&para;</a></h3>
+<p>Automatically created by systems and devices.</p>
+<p><strong>Examples</strong>:
+- <strong>Sensors</strong>: Temperature, pressure, GPS, accelerometer
+- <strong>Logs</strong>: Web server logs, application logs, error logs
+- <strong>Transactions</strong>: Banking, e-commerce, point-of-sale
+- <strong>IoT Devices</strong>: Smart home sensors, wearables, industrial sensors</p>
+<p><strong>Characteristics</strong>:
+- ✓ High volume and velocity
+- ✓ Consistent format
+- ✓ Objective measurements
+- ✗ May contain noise or sensor errors
+- ✗ Requires context for interpretation</p>
+<hr />
+<h3 id="33-process-generated-data">3.3 Process-Generated Data<a class="headerlink" href="#33-process-generated-data" title="Permanent link">&para;</a></h3>
+<p>Created as byproduct of business processes and operations.</p>
+<p><strong>Examples</strong>:
+- <strong>Business Operations</strong>: Inventory levels, employee attendance
+- <strong>Healthcare</strong>: Patient records, lab results, prescriptions
+- <strong>Education</strong>: Student grades, attendance, enrollment
+- <strong>Government</strong>: Census data, tax records, permits</p>
+<p><strong>Characteristics</strong>:
+- ✓ Well-structured and standardized
+- ✓ Historical records for trend analysis
+- ✗ May be siloed across departments
+- ✗ Privacy and compliance constraints</p>
+<hr />
+<h3 id="34-experimental-data">3.4 Experimental Data<a class="headerlink" href="#34-experimental-data" title="Permanent link">&para;</a></h3>
+<p>Collected through controlled experiments and research.</p>
+<p><strong>Examples</strong>:
+- <strong>Scientific Research</strong>: Lab experiments, clinical trials
+- <strong>A/B Testing</strong>: Website variations, app features
+- <strong>Market Research</strong>: Product testing, focus groups</p>
+<p><strong>Characteristics</strong>:
+- ✓ High quality and controlled
+- ✓ Clear methodology and documentation
+- ✗ Limited sample size
+- ✗ Expensive to collect</p>
+<hr />
+<h3 id="data-generation-pipeline">Data Generation Pipeline<a class="headerlink" href="#data-generation-pipeline" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Data Sources → Collection → Storage → Processing → Analysis
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>     ↓              ↓           ↓          ↓           ↓
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>  Sensors      APIs/Forms    Database    ETL      Insights
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>  Humans       Scraping      Cloud       Clean    Reports
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>  Systems      Streaming     Data Lake   Transform Models
+</code></pre></div>
+<hr />
+<h2 id="4-traditional-data-vs-big-data">4.  Traditional Data vs Big Data<a class="headerlink" href="#4-traditional-data-vs-big-data" title="Permanent link">&para;</a></h2>
+<p>Understanding the difference is crucial for choosing appropriate tools and techniques.</p>
+<h3 id="41-traditional-data">4.1 Traditional Data<a class="headerlink" href="#41-traditional-data" title="Permanent link">&para;</a></h3>
+<p><strong>Definition</strong>: Data that can be processed on a single machine with standard tools.</p>
+<p><strong>Characteristics</strong>:
+- <strong>Volume</strong>: Gigabytes (GB) or less
+- <strong>Processing</strong>: Excel, single database, local analysis
+- <strong>Storage</strong>: Local disk, single server
+- <strong>Tools</strong>: Excel, R, Python (Pandas), SQL databases</p>
+<p><strong>Example Scenarios</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>✓ Small business sales data (1,000 transactions/day)
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>✓ Local hospital patient records (10,000 patients)
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>✓ Survey data (5,000 responses)
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>✓ Retail store inventory (50,000 products)
+</code></pre></div></p>
+<p><strong>Processing Time</strong>: Minutes to hours on a laptop</p>
+<hr />
+<h3 id="42-big-data">4.2 Big Data<a class="headerlink" href="#42-big-data" title="Permanent link">&para;</a></h3>
+<p><strong>Definition</strong>: Data so large and complex that traditional tools cannot handle it efficiently.</p>
+<p><strong>Characteristics</strong>:
+- <strong>Volume</strong>: Terabytes (TB) to Petabytes (PB)
+- <strong>Velocity</strong>: Real-time or near-real-time processing
+- <strong>Variety</strong>: Multiple formats (structured, unstructured)
+- <strong>Processing</strong>: Distributed systems (Hadoop, Spark)
+- <strong>Storage</strong>: Distributed file systems (HDFS, Cloud)</p>
+<p><strong>Example Scenarios</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>✓ Netflix streaming data (billions of events/day)
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>✓ Facebook user interactions (billions of posts/day)
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>✓ Stock market tick data (millions of trades/second)
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>✓ IoT sensor networks (millions of devices)
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>✓ Genomic sequencing data (100+ GB per individual)
+</code></pre></div></p>
+<p><strong>Processing Time</strong>: Minutes to hours using distributed clusters (100+ machines)</p>
+<hr />
+<h3 id="comparison-table">Comparison Table<a class="headerlink" href="#comparison-table" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Small Data</th>
+<th>Big Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Volume</strong></td>
+<td>MB to GB</td>
+<td>TB to PB</td>
+</tr>
+<tr>
+<td><strong>Processing</strong></td>
+<td>Single machine</td>
+<td>Distributed cluster</td>
+</tr>
+<tr>
+<td><strong>Speed</strong></td>
+<td>Minutes to hours</td>
+<td>Requires parallel processing</td>
+</tr>
+<tr>
+<td><strong>Storage</strong></td>
+<td>Local disk</td>
+<td>Distributed (HDFS, Cloud)</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Excel, Pandas, MySQL</td>
+<td>Hadoop, Spark, NoSQL</td>
+</tr>
+<tr>
+<td><strong>Cost</strong></td>
+<td>Low (<span class="arithmatex">\(100-\)</span>1000)</td>
+<td>High (<span class="arithmatex">\(10,000-\)</span>1,000,000+)</td>
+</tr>
+<tr>
+<td><strong>Expertise</strong></td>
+<td>Basic SQL, Python</td>
+<td>Distributed systems knowledge</td>
+</tr>
+<tr>
+<td><strong>Analysis Time</strong></td>
+<td>Interactive (seconds)</td>
+<td>Batch processing (hours)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="when-do-you-need-big-data-tools">When Do You Need Big Data Tools?<a class="headerlink" href="#when-do-you-need-big-data-tools" title="Permanent link">&para;</a></h3>
+<p><strong>Use Big Data Tools When</strong>:
+- ✅ Data doesn't fit in memory (&gt;16-32 GB)
+- ✅ Processing takes hours on single machine
+- ✅ Real-time streaming analysis required
+- ✅ Need to scale to multiple machines</p>
+<p><strong>Use Small Data Tools When</strong>:
+- ✅ Data fits in Excel or Pandas DataFrame
+- ✅ Analysis completes in minutes
+- ✅ Budget constraints
+- ✅ Simple reporting and dashboards</p>
+<p><strong>This Course Covers Both</strong>: We'll start with small data tools (Pandas, Scikit-Learn) and progress to big data technologies (Hadoop, Spark) in Month 10.</p>
+<hr />
+<h2 id="5-understanding-events-and-data-generation">5. Understanding Events and Data Generation<a class="headerlink" href="#5-understanding-events-and-data-generation" title="Permanent link">&para;</a></h2>
+<h3 id="what-is-an-event">What is an Event?<a class="headerlink" href="#what-is-an-event" title="Permanent link">&para;</a></h3>
+<p>An <strong>event</strong> represents something meaningful that happened at a specific point in time. Every piece of data in your analytical dataset began as a real-world event.</p>
+<p><strong>Common Event Types:</strong>
+- <strong>User Interactions</strong>: Clicks, page views, form submissions, scrolls
+- <strong>Transactions</strong>: Purchases, payments, refunds, cart actions
+- <strong>System Events</strong>: API calls, errors, performance metrics
+- <strong>IoT/Sensor Data</strong>: Temperature readings, GPS locations, device status
+- <strong>Communication</strong>: Messages, emails, social posts, support tickets</p>
+<h3 id="event-components">Event Components<a class="headerlink" href="#event-components" title="Permanent link">&para;</a></h3>
+<p>Every event should capture:
+1. <strong>What happened</strong> - Event type (e.g., "purchase_completed")
+2. <strong>When it happened</strong> - Timestamp (precise time)
+3. <strong>Who/What was involved</strong> - User ID, session ID, device info
+4. <strong>Context</strong> - Additional metadata (page URL, product ID, location)</p>
+<p><strong>Example Event Structure:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">{</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nt">&quot;event_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product_view&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-11-23T14:30:00Z&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="nt">&quot;user_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user_12345&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span><span class="nt">&quot;session_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sess_abc123&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">  </span><span class="nt">&quot;product_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;prod_789&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">  </span><span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;electronics&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">  </span><span class="nt">&quot;device&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mobile&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">  </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;homepage&quot;</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h2 id="6the-data-journey-from-events-to-analysis">6.The Data Journey - From Events to Analysis<a class="headerlink" href="#6the-data-journey-from-events-to-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="the-complete-pipeline">The Complete Pipeline<a class="headerlink" href="#the-complete-pipeline" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Real-World Event → Event Capture → Data Storage → 
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>Processing/Transformation → Analysis → Insights
+</code></pre></div>
+<h3 id="stage-1-event-capture">Stage 1: Event Capture<a class="headerlink" href="#stage-1-event-capture" title="Permanent link">&para;</a></h3>
+<p><strong>Key Considerations:</strong>
+- <strong>Timing</strong>: Synchronous (immediate) vs Asynchronous (delayed)
+- <strong>Granularity</strong>: What level of detail to capture?
+- <strong>Performance</strong>: Impact on user experience
+- <strong>Reliability</strong>: Ensuring events aren't lost</p>
+<p><strong>Common Capture Methods:</strong>
+- JavaScript tracking (web)
+- Mobile SDKs (iOS/Android)
+- Server-side logging
+- Message queues (Kafka, RabbitMQ)</p>
+<h3 id="stage-2-data-storage">Stage 2: Data Storage<a class="headerlink" href="#stage-2-data-storage" title="Permanent link">&para;</a></h3>
+<p><strong>Storage Options:</strong>
+- <strong>Real-time</strong>: Streaming platforms (Kafka, Kinesis)
+- <strong>Batch</strong>: Data warehouses (Snowflake, BigQuery, Redshift)
+- <strong>Raw Events</strong>: Data lakes (S3, HDFS)
+- <strong>Processed</strong>: Databases (PostgreSQL, MongoDB)</p>
+<h3 id="stage-3-processing">Stage 3: Processing<a class="headerlink" href="#stage-3-processing" title="Permanent link">&para;</a></h3>
+<p><strong>Typical Transformations:</strong>
+- Data cleaning (removing duplicates, invalid records)
+- Enrichment (adding derived fields)
+- Aggregation (summaries, rollups)
+- Join operations (combining multiple event streams)</p>
+<hr />
+<h2 id="7-event-driven-architecture">7: Event-Driven Architecture<a class="headerlink" href="#7-event-driven-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="event-sourcing-pattern">Event Sourcing Pattern<a class="headerlink" href="#event-sourcing-pattern" title="Permanent link">&para;</a></h3>
+<p><strong>Concept</strong>: Store every event that has ever occurred, rather than just current state.</p>
+<p><strong>Benefits:</strong>
+- Complete audit trail
+- Time-travel capabilities (rebuild state at any point)
+- Rich historical analysis
+- Easy debugging and replay</p>
+<p><strong>Challenges:</strong>
+- High storage requirements
+- Query complexity
+- Privacy concerns (storing all historical data)</p>
+<h3 id="multiple-data-streams-challenge">Multiple Data Streams Challenge<a class="headerlink" href="#multiple-data-streams-challenge" title="Permanent link">&para;</a></h3>
+<p>A single real-world action often triggers multiple data streams:</p>
+<p><strong>Example: Online Purchase</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Customer clicks &quot;Buy Now&quot;
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    ↓
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>├── E-commerce platform (order details)
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>├── Payment processor (transaction)
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>├── Inventory system (stock update)
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>├── Shipping provider (tracking)
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>├── CRM system (customer interaction)
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>└── Analytics platform (behavior tracking)
+</code></pre></div></p>
+<p><strong>Challenge</strong>: Each system captures different aspects with:
+- Different timestamps
+- Different schemas
+- Different update frequencies
+- Potential inconsistencies</p>
+<hr />
+<h2 id="8-data-lineage">8: Data Lineage<a class="headerlink" href="#8-data-lineage" title="Permanent link">&para;</a></h2>
+<h3 id="what-is-data-lineage">What is Data Lineage?<a class="headerlink" href="#what-is-data-lineage" title="Permanent link">&para;</a></h3>
+<p>The complete journey data takes from its original source through all transformations until it reaches your analysis.</p>
+<p><strong>Why It Matters:</strong>
+1. <strong>Quality Assessment</strong> - Trace issues back to their source
+2. <strong>Bias Detection</strong> - Understand collection biases
+3. <strong>Anomaly Investigation</strong> - Distinguish real patterns from artifacts
+4. <strong>Compliance</strong> - Document data origins for regulations (GDPR, CCPA)</p>
+<h3 id="example-lineage-flow">Example Lineage Flow<a class="headerlink" href="#example-lineage-flow" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Raw Click Event (Web Server) →
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>  Cleaned Event (ETL Pipeline) →
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    Sessionized Data (Processing Layer) →
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>      User Behavior Table (Data Warehouse) →
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>        Your Analysis
+</code></pre></div>
+<p><strong>Key Questions to Ask:</strong>
+- Where did this data originate?
+- What transformations were applied?
+- When was it collected?
+- What sampling or filtering occurred?
+- Are there known quality issues?</p>
+<hr />
+<h2 id="9-common-challenges-in-event-tracking">9: Common Challenges in Event Tracking<a class="headerlink" href="#9-common-challenges-in-event-tracking" title="Permanent link">&para;</a></h2>
+<h3 id="1-timing-issues">1. Timing Issues<a class="headerlink" href="#1-timing-issues" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Clock Synchronization</strong>: Different servers may have slightly different times</li>
+<li><strong>Network Delays</strong>: Events may arrive out of order</li>
+<li><strong>Processing Lag</strong>: Time between event occurrence and availability</li>
+<li><strong>Time Zones</strong>: Consistent timestamp handling across regions</li>
+</ul>
+<p><strong>Best Practice</strong>: Always use UTC timestamps and include both event time and ingestion time.</p>
+<h3 id="2-data-volume">2. Data Volume<a class="headerlink" href="#2-data-volume" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Millions of events per second</li>
+<li>Storage costs escalate quickly</li>
+<li>Processing overhead</li>
+<li>Need for sampling strategies</li>
+</ul>
+<p><strong>Best Practice</strong>: Implement tiered storage (hot/warm/cold) and intelligent sampling.</p>
+<h3 id="3-privacy-compliance">3. Privacy &amp; Compliance<a class="headerlink" href="#3-privacy-compliance" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>GDPR</strong>: Right to be forgotten, consent management</li>
+<li><strong>CCPA</strong>: Data deletion requests</li>
+<li><strong>PII Protection</strong>: Personally Identifiable Information handling</li>
+<li><strong>Data Anonymization</strong>: Removing or masking sensitive data</li>
+</ul>
+<p><strong>Best Practice</strong>: Design privacy controls from the start, not as an afterthought.</p>
+<h3 id="4-incomplete-event-capture">4. Incomplete Event Capture<a class="headerlink" href="#4-incomplete-event-capture" title="Permanent link">&para;</a></h3>
+<p><strong>Common Causes:</strong>
+- Ad blockers
+- Tracking prevention (Safari, Firefox)
+- Offline users
+- Script loading failures
+- Network issues</p>
+<p><strong>Best Practice</strong>: Implement server-side tracking for critical events; acknowledge limitations in your analysis.</p>
+<h3 id="5-schema-evolution">5. Schema Evolution<a class="headerlink" href="#5-schema-evolution" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Event structures change over time</li>
+<li>New fields added</li>
+<li>Old fields deprecated</li>
+<li>Type changes</li>
+</ul>
+<p><strong>Best Practice</strong>: Use versioning and maintain backward compatibility.</p>
+<hr />
+<h2 id="10-best-practices-for-data-scientists">10: Best Practices for Data Scientists<a class="headerlink" href="#10-best-practices-for-data-scientists" title="Permanent link">&para;</a></h2>
+<h3 id="1-understand-data-provenance">1. Understand Data Provenance<a class="headerlink" href="#1-understand-data-provenance" title="Permanent link">&para;</a></h3>
+<p><strong>Always ask:</strong>
+- How was this data collected?
+- What biases might exist in the collection process?
+- What events are NOT captured?
+- How representative is this data?</p>
+<h3 id="2-validate-data-quality-early">2. Validate Data Quality Early<a class="headerlink" href="#2-validate-data-quality-early" title="Permanent link">&para;</a></h3>
+<p><strong>Check for:</strong>
+- Missing events or data gaps
+- Duplicate records
+- Timestamp anomalies
+- Unexpected value distributions
+- Schema violations</p>
+<h3 id="3-cross-reference-multiple-sources">3. Cross-Reference Multiple Sources<a class="headerlink" href="#3-cross-reference-multiple-sources" title="Permanent link">&para;</a></h3>
+<p>Don't rely on a single data source when possible:
+- Compare metrics across systems
+- Validate critical business metrics
+- Identify discrepancies early</p>
+<h3 id="4-document-assumptions">4. Document Assumptions<a class="headerlink" href="#4-document-assumptions" title="Permanent link">&para;</a></h3>
+<p>Maintain clear documentation about:
+- Known data quality issues
+- Sampling rates
+- Filtering applied
+- Transformations performed
+- Business logic encoded</p>
+<h3 id="5-consider-privacy-from-the-start">5. Consider Privacy from the Start<a class="headerlink" href="#5-consider-privacy-from-the-start" title="Permanent link">&para;</a></h3>
+<p><strong>Key Principles:</strong>
+- Collect only what you need
+- Anonymize where possible
+- Implement data retention policies
+- Handle PII with care
+- Plan for deletion requests</p>
+<h3 id="6-design-for-evolution">6. Design for Evolution<a class="headerlink" href="#6-design-for-evolution" title="Permanent link">&para;</a></h3>
+<p><strong>Build flexible pipelines:</strong>
+- Handle schema changes gracefully
+- Version your event definitions
+- Plan for new event types
+- Maintain backward compatibility</p>
+<h3 id="7-monitor-data-freshness">7. Monitor Data Freshness<a class="headerlink" href="#7-monitor-data-freshness" title="Permanent link">&para;</a></h3>
+<p><strong>Track:</strong>
+- Time lag between event and availability
+- Processing delays
+- Data pipeline health
+- Missing data periods</p>
+<hr />
+<h2 id="11-event-design-guidelines">11: Event Design Guidelines<a class="headerlink" href="#11-event-design-guidelines" title="Permanent link">&para;</a></h2>
+<h3 id="naming-conventions">Naming Conventions<a class="headerlink" href="#naming-conventions" title="Permanent link">&para;</a></h3>
+<p><strong>Use clear, consistent naming:</strong>
+- <strong>Good</strong>: <code>user_signup_completed</code>, <code>product_added_to_cart</code>
+- <strong>Avoid</strong>: <code>event1</code>, <code>click</code>, <code>action</code></p>
+<h3 id="required-fields">Required Fields<a class="headerlink" href="#required-fields" title="Permanent link">&para;</a></h3>
+<p><strong>Every event should include:</strong>
+- <code>event_type</code> or <code>event_name</code>
+- <code>timestamp</code> (UTC)
+- <code>user_id</code> or <code>anonymous_id</code>
+- <code>session_id</code>
+- Event-specific properties</p>
+<h3 id="context-fields">Context Fields<a class="headerlink" href="#context-fields" title="Permanent link">&para;</a></h3>
+<p><strong>Helpful metadata:</strong>
+- <code>device_type</code> (mobile, desktop, tablet)
+- <code>platform</code> (iOS, Android, web)
+- <code>app_version</code>
+- <code>user_agent</code>
+- <code>ip_address</code> (for geo-location)
+- <code>referrer</code> (traffic source)</p>
+<hr />
+<h2 id="12-working-with-event-data">12: Working with Event Data<a class="headerlink" href="#12-working-with-event-data" title="Permanent link">&para;</a></h2>
+<h3 id="sessionization">Sessionization<a class="headerlink" href="#sessionization" title="Permanent link">&para;</a></h3>
+<p>Group events into user sessions for analysis.</p>
+<p><strong>Common Approach:</strong>
+- Session timeout: 30 minutes of inactivity
+- Track: session start, session end, duration, event count</p>
+<h3 id="funnel-analysis">Funnel Analysis<a class="headerlink" href="#funnel-analysis" title="Permanent link">&para;</a></h3>
+<p>Track users through multi-step processes:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Landing Page → Product View → Add to Cart → 
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>Checkout → Payment → Confirmation
+</code></pre></div></p>
+<p><strong>Key Metrics:</strong>
+- Conversion rate at each step
+- Drop-off points
+- Time between steps</p>
+<h3 id="cohort-analysis">Cohort Analysis<a class="headerlink" href="#cohort-analysis" title="Permanent link">&para;</a></h3>
+<p>Group users by shared characteristics:
+- Sign-up date
+- First purchase date
+- Feature usage</p>
+<p><strong>Track over time:</strong>
+- Retention rates
+- Engagement patterns
+- Lifetime value</p>
+<h3 id="attribution">Attribution<a class="headerlink" href="#attribution" title="Permanent link">&para;</a></h3>
+<p>Determine which events/touchpoints lead to conversions:
+- First-touch attribution
+- Last-touch attribution
+- Multi-touch attribution
+- Time-decay models</p>
+<hr />
+<h2 id="13-key-metrics-to-monitor">13: Key Metrics to Monitor<a class="headerlink" href="#13-key-metrics-to-monitor" title="Permanent link">&para;</a></h2>
+<h3 id="what-are-metrics-trees">What Are Metrics Trees?<a class="headerlink" href="#what-are-metrics-trees" title="Permanent link">&para;</a></h3>
+<p>Imagine you're an architect designing a building. You wouldn't just focus on whether the foundation is strong—you'd also care about whether people want to live in the building, whether it meets safety codes, and whether it generates rental income for the owner. Metrics trees apply this same holistic thinking to machine learning systems.</p>
+<p>A metrics tree is a hierarchical framework that maps the relationships between different types of measurements in your ML system. It starts with your ultimate business goals at the top and branches down through increasingly specific metrics until you reach the technical details that engineers can directly optimize.</p>
+<p>The fundamental insight here is crucial: <strong>technical excellence in machine learning is only valuable when it translates into business success</strong>. A model with 99% accuracy that nobody uses is less valuable than a model with 85% accuracy that drives significant user engagement and revenue.</p>
+<h3 id="the-architecture-of-metrics-trees">The Architecture of Metrics Trees<a class="headerlink" href="#the-architecture-of-metrics-trees" title="Permanent link">&para;</a></h3>
+<p>Let's think about metrics trees as having four distinct levels, each serving a specific purpose in your measurement strategy.</p>
+<p><strong>Level 1: Business Impact Metrics (The North Star)</strong>
+At the apex of your metrics tree sit the measurements that define success for your organization. These metrics directly reflect whether your ML system is achieving its intended business purpose. For a streaming service's recommendation engine, this might be subscriber retention rates and total viewing hours. For a financial institution's fraud detection system, it could be total losses prevented and regulatory compliance scores.</p>
+<p>These metrics matter because they're what executives and stakeholders care about most. When you're defending your ML project's budget or arguing for additional resources, these are the numbers that will make or break your case.</p>
+<p><strong>Level 2: Product and User Experience Metrics (The Bridge)</strong>
+The second tier contains metrics that bridge the gap between business outcomes and technical performance. These measurements capture how users interact with your ML system and whether it's creating the intended experience.</p>
+<p>Think of these as leading indicators of your business metrics. If users are clicking on more recommendations, spending more time with recommended content, or providing positive feedback, these behaviors should eventually translate into improved business outcomes like increased revenue or user retention.</p>
+<p>For our streaming service example, this level might include click-through rates on recommended content, average session duration after viewing recommendations, and user satisfaction ratings. These metrics help you understand the user experience that ultimately drives business results.</p>
+<p><strong>Level 3: Model Performance Metrics (The Technical Foundation)</strong>
+Here we find the traditional ML metrics that data scientists know well: precision, recall, F1-scores, AUC-ROC curves, mean squared error, and similar measurements. These metrics directly evaluate how well your model performs its intended technical task.</p>
+<p>While these metrics are essential for model development and debugging, remember that they're means to an end, not ends in themselves. A model with perfect technical metrics that doesn't improve user experience or business outcomes needs to be reconsidered.</p>
+<p><strong>Level 4: Operational and System Metrics (The Infrastructure)</strong>
+The foundation of your metrics tree encompasses the operational health of your ML system. This includes model inference latency, system uptime, data quality scores, resource utilization, and model drift detection.</p>
+<p>These metrics ensure your technically sound model can actually deliver value in production. A model that takes thirty seconds to generate a recommendation is technically useless for real-time applications, regardless of its accuracy.</p>
+<h3 id="why-metrics-trees-transform-ml-success">Why Metrics Trees Transform ML Success<a class="headerlink" href="#why-metrics-trees-transform-ml-success" title="Permanent link">&para;</a></h3>
+<p>The power of metrics trees lies in their ability to create alignment and enable intelligent decision-making across your organization. When your data science team optimizes for a technical metric like recall, everyone can trace exactly how that improvement should flow upward through user engagement to business results.</p>
+<p>Consider this scenario: your fraud detection model can achieve higher precision but at the cost of increased inference latency. Without a metrics tree, you might make this decision in isolation, focusing only on the technical trade-off. With a clear metrics tree, you can trace the implications: higher latency might hurt user experience during checkout, potentially reducing conversion rates and ultimately affecting revenue.</p>
+<p>This systematic thinking prevents the common trap of optimizing technical metrics that don't translate into real-world value. It also helps you make informed decisions when trade-offs arise, which they inevitably will in production ML systems.</p>
+<h3 id="comprehensive-tracking-in-mlai-projects">Comprehensive Tracking in ML/AI Projects<a class="headerlink" href="#comprehensive-tracking-in-mlai-projects" title="Permanent link">&para;</a></h3>
+<p>Understanding what to measure requires thinking about your ML system from multiple perspectives, each contributing essential information about system health and business impact.</p>
+<p><strong>Model Performance: Beyond Basic Accuracy</strong>
+While accuracy metrics form the technical foundation of your measurements, sophisticated ML systems require more nuanced evaluation. For classification problems, you'll track precision (how many of your positive predictions were correct), recall (how many actual positive cases you identified), and F1-score (the harmonic mean balancing precision and recall).</p>
+<p>But consider also tracking model confidence and uncertainty. A model that can communicate its uncertainty about predictions might be more valuable than one that appears confident but is frequently wrong. Additionally, monitor performance across different demographic groups or user segments to ensure your model works fairly and effectively for all users.</p>
+<p>For regression problems, move beyond simple error metrics to understand the distribution of errors. Are most errors small with occasional large outliers, or are errors more uniformly distributed? This understanding helps you set appropriate expectations and design downstream systems.</p>
+<p><strong>Business Impact: Connecting ML to Value Creation</strong>
+Your business metrics should have clear, measurable relationships with your ML system's performance. For a content recommendation system, track metrics like user engagement time, content consumption rates, subscription renewals, and revenue per user.</p>
+<p>The critical requirement is establishing causal relationships between ML performance and business outcomes. If your recommendation engine improves its technical metrics, you should observe corresponding improvements in these business metrics within a reasonable timeframe. If you don't see this connection, you need to investigate whether your technical improvements are actually reaching users or whether you're optimizing for the wrong technical metrics.</p>
+<p><strong>User Experience: The Human Side of ML Systems</strong>
+User-facing ML systems require careful attention to how people actually interact with your model's outputs. This includes explicit feedback like ratings, clicks, and direct user responses, as well as implicit signals like time spent engaging with recommendations, task completion rates, and return usage patterns.</p>
+<p>Pay particular attention to user trust and perceived value. Even a technically accurate model can fail if users don't trust its recommendations or find them irrelevant. Monitor metrics like user adoption rates, override frequencies (how often users ignore or modify model suggestions), and qualitative feedback about the system's usefulness.</p>
+<p><strong>Operational Health: Keeping Systems Running</strong>
+Your ML system operates within a complex technical infrastructure, and its performance depends on that infrastructure functioning smoothly. Monitor model inference times to ensure users don't experience frustrating delays. Track data freshness to confirm your model has access to current information. Monitor computational resource usage to prevent performance degradation and control costs.</p>
+<p>Also implement monitoring for model drift—the gradual degradation of model performance as the real world changes. This is particularly important for models operating in dynamic environments where user behavior, market conditions, or data distributions evolve over time.</p>
+<h3 id="real-world-examples-metrics-trees-in-practice">Real-World Examples: Metrics Trees in Practice<a class="headerlink" href="#real-world-examples-metrics-trees-in-practice" title="Permanent link">&para;</a></h3>
+<p>Let me walk you through detailed examples that illustrate how metrics trees work across different domains and use cases.</p>
+<p><strong>Case Study 1: E-commerce Product Recommendation Engine</strong></p>
+<p>Imagine you're working with a major online retailer implementing a new recommendation system for their product catalog. Their metrics tree demonstrates the full journey from technical performance to business value.</p>
+<p>At the business impact level, they track monthly revenue per user, customer lifetime value, and market share growth. These metrics directly reflect whether the recommendation system achieves its ultimate goal of driving profitable customer behavior and competitive advantage.</p>
+<p>The user experience tier monitors click-through rates on recommended products, average items per purchase session, time spent browsing recommended sections, and user satisfaction scores collected through surveys and feedback mechanisms. They also track recommendation diversity to ensure users see a good variety of products rather than repetitive suggestions.</p>
+<p>Technical model performance includes precision at k (how many of the top k recommendations were actually purchased), recall (what percentage of items the user eventually bought were included in recommendations), and diversity scores measuring how varied the recommendations are across different product categories.</p>
+<p>Operational metrics encompass recommendation generation latency, catalog freshness (how quickly new products appear in recommendations), system availability during peak shopping periods like Black Friday, and the computational cost per recommendation generated.</p>
+<p>The interconnections become clear when they need to make decisions. When considering a more sophisticated deep learning model that improves precision by 5% but doubles inference latency, they can trace the potential impact through their entire metrics tree. The improved precision should increase click-through rates and purchases, but the added latency might hurt user experience and reduce overall engagement. The metrics tree provides a framework for making this trade-off analytically rather than intuitively.</p>
+<p><strong>Case Study 2: Healthcare Diagnostic AI System</strong></p>
+<p>A hospital implementing an AI system to assist radiologists with medical imaging diagnosis requires a fundamentally different but equally well-structured metrics tree.</p>
+<p>Business impact metrics focus on patient outcomes and healthcare delivery efficiency: diagnostic accuracy rates, time from imaging to diagnosis, patient satisfaction with the diagnostic process, and cost per diagnosis. They also track integration success with existing clinical workflows and compliance with healthcare regulations.</p>
+<p>User experience metrics center on clinician adoption and workflow integration. They monitor how often radiologists accept, modify, or reject the AI's suggestions, time spent reviewing AI recommendations, and clinician confidence in the system's outputs measured through regular surveys and feedback sessions.</p>
+<p>Technical performance metrics include sensitivity (the percentage of actual conditions correctly identified), specificity (the percentage of healthy cases correctly identified), positive predictive value, and negative predictive value. Critically, they monitor performance across different patient demographics, imaging equipment types, and condition severities to ensure equitable and reliable care.</p>
+<p>Operational metrics cover image processing time, system uptime during critical hours, data quality scores for incoming medical images, and integration stability with the hospital's existing information systems.</p>
+<p>This metrics tree helps the hospital make evidence-based decisions about system deployment and optimization while maintaining focus on patient outcomes and clinical workflow integration.</p>
+<p><strong>Case Study 3: Financial Risk Assessment Platform</strong></p>
+<p>A bank deploying machine learning for loan approval decisions creates a metrics tree that balances business profitability with regulatory compliance and fairness considerations.</p>
+<p>Business metrics include loan portfolio performance, default rates, profitability per approved loan, and regulatory compliance scores. They also track operational efficiency gains and cost savings compared to manual underwriting processes.</p>
+<p>User experience focuses on application processing time, customer satisfaction with the approval process, appeal and dispute rates for rejected applications, and loan officer satisfaction when the system is used to augment human decision-making.</p>
+<p>Technical model performance includes standard classification metrics like AUC and precision/recall, but also fairness metrics ensuring equal treatment across protected demographic groups. They track calibration scores to ensure predicted probabilities match actual outcomes and monitor model stability across different economic conditions.</p>
+<p>Operational metrics monitor model inference time, data pipeline health, model drift detection (ensuring performance doesn't degrade as economic conditions change), and system security measures protecting sensitive financial data.</p>
+<hr />
+<h2 id="14-common-pitfalls-to-avoid">14: Common Pitfalls to Avoid<a class="headerlink" href="#14-common-pitfalls-to-avoid" title="Permanent link">&para;</a></h2>
+<h3 id="dont-do-this">❌ Don't Do This:<a class="headerlink" href="#dont-do-this" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Ignoring data quality</strong> - Always validate before analysis</li>
+<li><strong>Assuming completeness</strong> - Account for missing data</li>
+<li><strong>Treating all events equally</strong> - Some events are more reliable</li>
+<li><strong>Forgetting privacy</strong> - Build in privacy controls early</li>
+<li><strong>Over-collecting data</strong> - More isn't always better</li>
+<li><strong>Ignoring sampling bias</strong> - Understand what's NOT captured</li>
+<li><strong>Trusting timestamps blindly</strong> - Verify time accuracy</li>
+<li><strong>Not documenting assumptions</strong> - Future you will thank you</li>
+</ol>
+<h3 id="do-this-instead">✅ Do This Instead:<a class="headerlink" href="#do-this-instead" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Validate early and often</strong> - Catch issues before they propagate</li>
+<li><strong>Document everything</strong> - Data sources, transformations, assumptions</li>
+<li><strong>Cross-reference sources</strong> - Verify critical metrics</li>
+<li><strong>Plan for failure</strong> - Handle missing data gracefully</li>
+<li><strong>Design for privacy</strong> - Build GDPR/CCPA compliance in</li>
+<li><strong>Version your schemas</strong> - Track changes over time</li>
+<li><strong>Monitor data freshness</strong> - Alert on delays</li>
+<li><strong>Understand the business context</strong> - Know what events mean</li>
+</ol>
+<hr />
+<h2 id="15-data-tracking-checklist">15: Data Tracking Checklist<a class="headerlink" href="#15-data-tracking-checklist" title="Permanent link">&para;</a></h2>
+<h3 id="before-analysis">Before Analysis<a class="headerlink" href="#before-analysis" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Understand data collection methodology</li>
+<li>[ ] Check data completeness and quality</li>
+<li>[ ] Verify timestamp accuracy</li>
+<li>[ ] Review known limitations</li>
+<li>[ ] Identify sampling or filtering</li>
+<li>[ ] Document data lineage</li>
+</ul>
+<h3 id="during-analysis">During Analysis<a class="headerlink" href="#during-analysis" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Cross-validate with other sources</li>
+<li>[ ] Account for missing data</li>
+<li>[ ] Check for outliers and anomalies</li>
+<li>[ ] Consider privacy implications</li>
+<li>[ ] Document assumptions made</li>
+<li>[ ] Test for temporal patterns</li>
+</ul>
+<h3 id="after-analysis">After Analysis<a class="headerlink" href="#after-analysis" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Validate findings make business sense</li>
+<li>[ ] Document data quality caveats</li>
+<li>[ ] Consider what's NOT in the data</li>
+<li>[ ] Plan for ongoing monitoring</li>
+<li>[ ] Share lineage documentation</li>
+<li>[ ] Update data quality metrics</li>
+</ul>
+<hr />
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Every dataset has a story</strong> - Understanding how data was collected is as important as analyzing it</p>
+</li>
+<li>
+<p><strong>Data quality matters more than data volume</strong> - Focus on reliable, well-understood data</p>
+</li>
+<li>
+<p><strong>Privacy is not optional</strong> - Build privacy controls from the start, not as an afterthought</p>
+</li>
+<li>
+<p><strong>Events are never perfectly captured</strong> - Account for missing data and biases in your analysis</p>
+</li>
+<li>
+<p><strong>Data lineage is your friend</strong> - Always know where your data came from and how it was transformed</p>
+</li>
+<li>
+<p><strong>Design for evolution</strong> - Systems and requirements change; build flexibility in</p>
+</li>
+<li>
+<p><strong>Documentation saves time</strong> - Document assumptions, limitations, and transformations</p>
+</li>
+<li>
+<p><strong>Validate, then trust</strong> - Always cross-reference and validate before making business decisions</p>
+</li>
+</ol>
+<hr />
+<h3 id="data-storage">Data Storage<a class="headerlink" href="#data-storage" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Warehouses: Snowflake, BigQuery, Redshift</li>
+<li>Lakes: S3, Azure Data Lake, GCS</li>
+<li>Streaming: Kafka, Kinesis</li>
+</ul>
+<h3 id="data-processing">Data Processing<a class="headerlink" href="#data-processing" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Batch: Spark, Hadoop, DBT</li>
+<li>Streaming: Flink, Spark Streaming, Kafka Streams</li>
+</ul>
+<h3 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h3>
+<ul>
+<li>SQL tools: Your data warehouse</li>
+<li>Python: Pandas, NumPy, Jupyter</li>
+<li>Visualization: Tableau, Looker, PowerBI</li>
+</ul>
+<hr />
+<h2 id="further-topics">Further topics<a class="headerlink" href="#further-topics" title="Permanent link">&para;</a></h2>
+<p><strong>Focus Areas:</strong></p>
+<ol>
+<li><strong>Databases</strong> - </li>
+<li><strong>Data Processing and manipulation</strong>(with SQL and pyspark)</li>
+<li><strong>Data Modeling</strong> - Structuring data for analysis</li>
+<li><strong>ETL/ELT Pipelines</strong> - How data moves and transforms</li>
+</ol>
+<hr />
+<p>Remember: <strong>Good data science starts with understanding your data's journey from the real world to your analysis.</strong></p>
+<h2 id="5-data-quality-and-preparation">5. Data Quality and Preparation<a class="headerlink" href="#5-data-quality-and-preparation" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>"Garbage In, Garbage Out"</strong> - The quality of your insights depends entirely on the quality of your data.</p>
+</blockquote>
+<h3 id="why-data-quality-matters">Why Data Quality Matters<a class="headerlink" href="#why-data-quality-matters" title="Permanent link">&para;</a></h3>
+<p><strong>80% of data science work is data preparation</strong>, not building fancy algorithms.</p>
+<p><strong>Real-World Impact</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Bad Data → Wrong Model → Wrong Predictions → Bad Decisions → Financial Loss
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>Example: Credit Scoring
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>- Bad data: Income recorded as &quot;$50,000&quot; vs &quot;50000&quot; (inconsistent)
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>- Wrong model: Treats them as different values
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>- Wrong prediction: Denies loan to qualified customer
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>- Financial loss: Lost business, customer churn
+</code></pre></div></p>
+<hr />
+<h3 id="common-data-quality-issues">Common Data Quality Issues<a class="headerlink" href="#common-data-quality-issues" title="Permanent link">&para;</a></h3>
+<h4 id="1-missing-data">1. <strong>Missing Data</strong><a class="headerlink" href="#1-missing-data" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># Example</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">customer_data</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">:</span> <span class="mi">50000</span><span class="p">},</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">:</span> <span class="mi">60000</span><span class="p">},</span>  <span class="c1"># Missing age</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>    <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>  <span class="c1"># Missing income</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="p">]</span>
+</code></pre></div>
+<p><strong>Impact</strong>: Can't use incomplete records for analysis<br />
+<strong>Solution</strong>: Imputation (fill with mean/median), deletion, prediction</p>
+<hr />
+<h4 id="2-inconsistent-formatting">2. <strong>Inconsistent Formatting</strong><a class="headerlink" href="#2-inconsistent-formatting" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1"># Date formats</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="n">dates</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2024-01-15&#39;</span><span class="p">,</span> <span class="s1">&#39;01/15/2024&#39;</span><span class="p">,</span> <span class="s1">&#39;15-Jan-2024&#39;</span><span class="p">]</span>  <span class="c1"># 3 formats!</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="c1"># Names</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;john doe&#39;</span><span class="p">,</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">,</span> <span class="s1">&#39;JOHN DOE&#39;</span><span class="p">]</span>  <span class="c1"># Same person?</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="c1"># Units</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="n">temperatures</span> <span class="o">=</span> <span class="p">[</span><span class="mf">98.6</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">310</span><span class="p">]</span>  <span class="c1"># Fahrenheit, Celsius, Kelvin</span>
+</code></pre></div>
+<p><strong>Impact</strong>: Fails to group/match correctly<br />
+<strong>Solution</strong>: Standardization, normalization</p>
+<hr />
+<h4 id="3-duplicate-records">3. <strong>Duplicate Records</strong><a class="headerlink" href="#3-duplicate-records" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">records</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>    <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;alice@email.com&#39;</span><span class="p">},</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>    <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;alice@email.com&#39;</span><span class="p">},</span>  <span class="c1"># Duplicate!</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="p">]</span>
+</code></pre></div>
+<p><strong>Impact</strong>: Inflates counts, biases analysis<br />
+<strong>Solution</strong>: Deduplication based on unique keys</p>
+<hr />
+<h4 id="4-outliers">4. <strong>Outliers</strong><a class="headerlink" href="#4-outliers" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="c1"># Employee salaries</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="n">salaries</span> <span class="o">=</span> <span class="p">[</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">55000</span><span class="p">,</span> <span class="mi">52000</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">,</span> <span class="mi">48000</span><span class="p">]</span>  <span class="c1"># CEO salary!</span>
+</code></pre></div>
+<p><strong>Impact</strong>: Skews statistical measures (mean, std)<br />
+<strong>Solution</strong>: Detection (IQR, Z-score), handling (cap, remove, separate)</p>
+<hr />
+<h4 id="5-noise-and-errors">5. <strong>Noise and Errors</strong><a class="headerlink" href="#5-noise-and-errors" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="c1"># Sensor readings with noise</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="n">sensor_data</span> <span class="o">=</span> <span class="p">[</span><span class="mf">23.5</span><span class="p">,</span> <span class="mf">23.7</span><span class="p">,</span> <span class="mf">99.9</span><span class="p">,</span> <span class="mf">23.6</span><span class="p">,</span> <span class="mf">23.8</span><span class="p">]</span>  <span class="c1"># 99.9 is error</span>
+</code></pre></div>
+<p><strong>Impact</strong>: Incorrect patterns, wrong predictions<br />
+<strong>Solution</strong>: Smoothing, filtering, validation rules</p>
+<hr />
+<h3 id="data-preparation-steps">Data Preparation Steps<a class="headerlink" href="#data-preparation-steps" title="Permanent link">&para;</a></h3>
+<h2 id="1-data-collection-gather-from-sources-2-data-cleaning-fix-errors-missing-values-outliers-3-data-integration-combine-from-multiple-sources-4-data-transformation-normalize-encode-scale-5-data-reduction-select-relevant-features-6-data-validation-verify-quality-and-consistency"><div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>1. Data Collection    → Gather from sources
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>2. Data Cleaning      → Fix errors, missing values, outliers
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>3. Data Integration   → Combine from multiple sources
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>4. Data Transformation → Normalize, encode, scale
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>5. Data Reduction     → Select relevant features
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>6. Data Validation    → Verify quality and consistency
+</code></pre></div><a class="headerlink" href="#1-data-collection-gather-from-sources-2-data-cleaning-fix-errors-missing-values-outliers-3-data-integration-combine-from-multiple-sources-4-data-transformation-normalize-encode-scale-5-data-reduction-select-relevant-features-6-data-validation-verify-quality-and-consistency" title="Permanent link">&para;</a></h2>
+<h2 id="6-roles-in-data">6. Roles in Data<a class="headerlink" href="#6-roles-in-data" title="Permanent link">&para;</a></h2>
+<p>The data ecosystem has distinct roles with different responsibilities and skill sets.</p>
+<h3 id="61-data-analyst">6.1 Data Analyst<a class="headerlink" href="#61-data-analyst" title="Permanent link">&para;</a></h3>
+<p><strong>Primary Focus</strong>: Analyzing historical data to answer business questions.</p>
+<p><strong>Key Responsibilities</strong>:
+- Create reports and dashboards
+- Perform descriptive statistics
+- Visualize trends and patterns
+- Answer specific business questions</p>
+<p><strong>Tools</strong>: SQL, Excel, Tableau, Power BI, Python (Pandas)</p>
+<p><strong>Example Task</strong>: "What were our sales by region last quarter?"</p>
+<p><strong>Skills</strong>:
+- ⭐⭐⭐ SQL &amp; Database Queries
+- ⭐⭐⭐ Data Visualization
+- ⭐⭐ Statistical Analysis
+- ⭐ Machine Learning</p>
+<hr />
+<h3 id="62-data-engineer">6.2 Data Engineer<a class="headerlink" href="#62-data-engineer" title="Permanent link">&para;</a></h3>
+<p><strong>Primary Focus</strong>: Building and maintaining data infrastructure and pipelines.</p>
+<p><strong>Key Responsibilities</strong>:
+- Design data architecture
+- Build ETL/ELT pipelines
+- Manage databases and data warehouses
+- Ensure data quality and availability
+- Optimize data processing systems</p>
+<p><strong>Tools</strong>: SQL, Python, Spark, Kafka, Airflow, AWS/Azure, Docker</p>
+<p><strong>Example Task</strong>: "Build a pipeline to ingest 10 TB of log data daily and make it available for analysis."</p>
+<p><strong>Skills</strong>:
+- ⭐⭐⭐ SQL &amp; Database Design
+- ⭐⭐⭐ Distributed Systems (Spark, Hadoop)
+- ⭐⭐⭐ ETL Pipeline Development
+- ⭐⭐ Cloud Platforms
+- ⭐ Machine Learning</p>
+<hr />
+<h3 id="63-data-scientist">6.3 Data Scientist<a class="headerlink" href="#63-data-scientist" title="Permanent link">&para;</a></h3>
+<p><strong>Primary Focus</strong>: Using statistical methods and machine learning to extract insights and build predictive models.</p>
+<p><strong>Key Responsibilities</strong>:
+- Exploratory Data Analysis (EDA)
+- Build predictive models
+- Conduct statistical hypothesis testing
+- Feature engineering
+- Communicate findings to stakeholders
+- Deploy models to production</p>
+<p><strong>Tools</strong>: Python (Scikit-Learn, Pandas), R, SQL, Jupyter, TensorFlow/PyTorch</p>
+<p><strong>Example Task</strong>: "Build a model to predict customer churn with 85% accuracy."</p>
+<p><strong>Skills</strong>:
+- ⭐⭐⭐ Statistics &amp; Probability
+- ⭐⭐⭐ Machine Learning
+- ⭐⭐⭐ Programming (Python/R)
+- ⭐⭐ Data Visualization
+- ⭐⭐ Business Communication
+- ⭐⭐ SQL</p>
+<hr />
+<h3 id="64-machine-learning-engineer">6.4 Machine Learning Engineer<a class="headerlink" href="#64-machine-learning-engineer" title="Permanent link">&para;</a></h3>
+<p><strong>Primary Focus</strong>: Deploying, scaling, and maintaining ML models in production.</p>
+<p><strong>Key Responsibilities</strong>:
+- Implement ML algorithms from scratch
+- Optimize model performance and latency
+- Build ML pipelines (training, deployment)
+- Scale models for production use
+- Monitor model performance
+- Integrate ML into applications (APIs)</p>
+<p><strong>Tools</strong>: Python, TensorFlow, PyTorch, Kubernetes, MLflow, Docker, AWS SageMaker</p>
+<p><strong>Example Task</strong>: "Deploy a recommendation model that serves 1 million predictions per second with &lt;100ms latency."</p>
+<p><strong>Skills</strong>:
+- ⭐⭐⭐ Machine Learning Algorithms
+- ⭐⭐⭐ Software Engineering
+- ⭐⭐⭐ ML Deployment &amp; MLOps
+- ⭐⭐ Distributed Systems
+- ⭐⭐ Cloud Platforms
+- ⭐ Statistics</p>
+<hr />
+<h3 id="65-ml-scientistresearcher">6.5 ML Scientist/Researcher<a class="headerlink" href="#65-ml-scientistresearcher" title="Permanent link">&para;</a></h3>
+<p><strong>Primary Focus</strong>: Developing new ML algorithms and advancing the state-of-the-art.</p>
+<p><strong>Key Responsibilities</strong>:
+- Research new ML techniques
+- Publish papers at conferences
+- Experiment with novel architectures
+- Prove theoretical properties of algorithms
+- Implement research prototypes</p>
+<p><strong>Tools</strong>: Python, PyTorch, TensorFlow, CUDA, Research papers</p>
+<p><strong>Example Task</strong>: "Develop a new attention mechanism that improves transformer efficiency by 30%."</p>
+<p><strong>Skills</strong>:
+- ⭐⭐⭐ Deep ML/DL Theory
+- ⭐⭐⭐ Mathematics (Linear Algebra, Calculus, Optimization)
+- ⭐⭐⭐ Research &amp; Experimentation
+- ⭐⭐ Programming
+- ⭐ Production Deployment</p>
+<hr />
+<h3 id="role-comparison-table">Role Comparison Table<a class="headerlink" href="#role-comparison-table" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Data Analyst</th>
+<th>Data Engineer</th>
+<th>Data Scientist</th>
+<th>ML Engineer</th>
+<th>ML Scientist</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Focus</strong></td>
+<td>Reporting</td>
+<td>Infrastructure</td>
+<td>Modeling</td>
+<td>Production</td>
+<td>Research</td>
+</tr>
+<tr>
+<td><strong>Math</strong></td>
+<td>⭐</td>
+<td>⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>Coding</strong></td>
+<td>⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐</td>
+</tr>
+<tr>
+<td><strong>ML</strong></td>
+<td>⭐</td>
+<td>⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>Stats</strong></td>
+<td>⭐⭐</td>
+<td>⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>DevOps</strong></td>
+<td>⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐</td>
+</tr>
+<tr>
+<td><strong>Business</strong></td>
+<td>⭐⭐⭐</td>
+<td>⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐</td>
+<td>⭐</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="data-scientist-vs-ml-engineer-key-differences">Data Scientist vs ML Engineer: Key Differences<a class="headerlink" href="#data-scientist-vs-ml-engineer-key-differences" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Data Scientist</th>
+<th>ML Engineer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Goal</strong></td>
+<td>Build accurate models</td>
+<td>Deploy scalable models</td>
+</tr>
+<tr>
+<td><strong>Environment</strong></td>
+<td>Jupyter Notebooks</td>
+<td>Production systems</td>
+</tr>
+<tr>
+<td><strong>Focus</strong></td>
+<td>Experimentation</td>
+<td>Optimization &amp; Reliability</td>
+</tr>
+<tr>
+<td><strong>Concerns</strong></td>
+<td>Model accuracy</td>
+<td>Latency, throughput, uptime</td>
+</tr>
+<tr>
+<td><strong>Deliverable</strong></td>
+<td>Model prototype, insights</td>
+<td>Production API, deployed service</td>
+</tr>
+<tr>
+<td><strong>Metrics</strong></td>
+<td>Accuracy, F1-score, AUC</td>
+<td>Latency, QPS, uptime %</td>
+</tr>
+<tr>
+<td><strong>Mindset</strong></td>
+<td>"Does it work well?"</td>
+<td>"Will it scale and stay up?"</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example Workflow</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>Data Scientist: 
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>  Builds model in notebook → Achieves 92% accuracy → Saves model.pkl
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>ML Engineer:
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>  Takes model.pkl → Optimizes code → Builds API → Deploys to K8s cluster
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>  → Monitors performance → A/B tests → Scales to 1M requests/day
+</code></pre></div></p>
+<p><strong>This Course</strong>: Prepares you primarily for <strong>Data Scientist</strong> role, with exposure to ML Engineering concepts in deployment modules.</p>
+<hr />
+<h2 id="7-what-is-data-science">7. What is Data Science?<a class="headerlink" href="#7-what-is-data-science" title="Permanent link">&para;</a></h2>
+<p><strong>Data Science</strong> is an interdisciplinary field that uses scientific methods, algorithms, and systems to extract knowledge and insights from structured and unstructured data.</p>
+<h3 id="the-data-science-workflow">The Data Science Workflow<a class="headerlink" href="#the-data-science-workflow" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>1. Business Problem    → What question are we answering?
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>   ↓
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>2. Data Collection     → Where do we get data?
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>   ↓
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>3. Data Cleaning       → Is the data ready to use?
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>   ↓
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>4. Exploratory Analysis → What patterns exist?
+<a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>   ↓
+<a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a>5. Feature Engineering → What variables matter?
+<a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a>   ↓
+<a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a>6. Modeling           → What algorithm to use?
+<a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a>   ↓
+<a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a>7. Evaluation         → Is the model accurate?
+<a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a>   ↓
+<a id="__codelineno-30-15" name="__codelineno-30-15" href="#__codelineno-30-15"></a>8. Deployment         → How do we use it?
+<a id="__codelineno-30-16" name="__codelineno-30-16" href="#__codelineno-30-16"></a>   ↓
+<a id="__codelineno-30-17" name="__codelineno-30-17" href="#__codelineno-30-17"></a>9. Monitoring         → Is it still working?
+</code></pre></div>
+<h3 id="data-science-skillset-venn-diagram">Data Science Skillset (Venn Diagram)<a class="headerlink" href="#data-science-skillset-venn-diagram" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>        Mathematics/Statistics
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>               /\
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>              /  \
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>             /    \
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>            /      \
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>           /   DS   \
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>          /__________\
+<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>  Programming    Domain Expertise
+</code></pre></div>
+<p><strong>Data Scientist = Math + Coding + Business Understanding</strong></p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.tracking", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.min.js"></script>
+      
+    
+  </body>
+</html>
