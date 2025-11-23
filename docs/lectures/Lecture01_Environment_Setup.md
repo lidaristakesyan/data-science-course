@@ -1,3 +1,4 @@
+
 ---
 # 🐍 Setting Up Python Projects with venv, Jupyter, VS Code, PyCharm, Conda, and Git
 
@@ -216,4 +217,5 @@ git push -u origin main
 **ALWAYS work inside a virtual environment** (venv or conda).  
 It keeps your machine clean and your projects professional!
 
---- EOF
+---
+
