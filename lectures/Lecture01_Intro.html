@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Data Science - Complete Course</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            color: #333333;
+            overflow: hidden;
+        }
+        
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .slide {
+            display: none;
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+        }
+        
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .slide-content {
+            border: 2px solid #333333;
+            padding: 40px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 4px solid #333333;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: #666666;
+            margin-bottom: 25px;
+        }
+        
+        .description {
+            font-size: 1.1em;
+            color: #555555;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-left: 5px solid #333333;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .content-grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .content-grid-4 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .section {
+            border: 2px solid #666666;
+            padding: 20px;
+            background: #fafafa;
+        }
+        
+        .section-header {
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .icon {
+            font-size: 1.3em;
+        }
+        
+        .item-list {
+            list-style: none;
+        }
+        
+        .item-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #dddddd;
+            color: #555555;
+            line-height: 1.4;
+            font-size: 0.95em;
+        }
+        
+        .item-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .code-block {
+            background: #333333;
+            color: #ffffff;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            line-height: 1.5;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+        
+        .highlight-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #333333;
+            color: #ffffff;
+            text-align: center;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        
+        .highlight-box-light {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-left: 5px solid #333333;
+            color: #555555;
+            line-height: 1.5;
+        }
+        
+        .venn-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .venn-circle {
+            width: 150px;
+            height: 150px;
+            border: 3px solid #333333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 600;
+            background: #f5f5f5;
+        }
+        
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+        
+        .flow-box {
+            padding: 12px 18px;
+            border: 2px solid #333333;
+            background: #fafafa;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .flow-arrow {
+            font-size: 1.5em;
+            color: #666666;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        
+        th, td {
+            border: 1px solid #666666;
+            padding: 10px;
+            text-align: left;
+            font-size: 0.9em;
+        }
+        
+        th {
+            background: #333333;
+            color: #ffffff;
+        }
+        
+        td {
+            background: #fafafa;
+        }
+        
+        .role-card {
+            border: 2px solid #333333;
+            padding: 15px;
+            background: #fafafa;
+            margin-bottom: 10px;
+        }
+        
+        .role-title {
+            font-weight: 700;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            border-bottom: 2px solid #333333;
+            padding-bottom: 5px;
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            padding: 3px 8px;
+            background: #e0e0e0;
+            margin: 2px;
+            font-size: 0.85em;
+            border: 1px solid #999999;
+        }
+        
+        .architecture-box {
+            border: 2px solid #333333;
+            padding: 20px;
+            background: #fafafa;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            white-space: pre-line;
+            line-height: 1.4;
+        }
+        
+        /* Navigation */
+        .navigation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-top: 2px solid #333333;
+        }
+        
+        .nav-button {
+            padding: 10px 25px;
+            font-size: 1em;
+            font-weight: 600;
+            border: 2px solid #333333;
+            background: #ffffff;
+            color: #333333;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .nav-button:hover:not(:disabled) {
+            background: #333333;
+            color: #ffffff;
+        }
+        
+        .nav-button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        
+        .slide-counter {
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .small-text {
+            font-size: 0.85em;
+            color: #666666;
+        }
+
+        .comparison-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .comparison-item {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #666666;
+            background: #fafafa;
+        }
+
+        .module-box {
+            border: 2px solid #333333;
+            padding: 15px;
+            background: #fafafa;
+        }
+
+        .module-title {
+            font-weight: 700;
+            font-size: 1.1em;
+            background: #333333;
+            color: #ffffff;
+            padding: 8px;
+            margin: -15px -15px 15px -15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        
+        <!-- Slide 1: Title -->
+        <div class="slide active" data-slide="1">
+            <div class="slide-content">
+                <div class="main-content">
+                    <h1 style="border-bottom: none; text-align: center; font-size: 3em;">Introduction to Data Science</h1>
+                    <p class="subtitle" style="text-align: center; font-size: 1.5em; margin-top: 20px;">A Comprehensive Course Overview</p>
+                    
+                    <div style="display: flex; gap: 50px; margin-top: 50px;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 3em;">📊</div>
+                            <div style="margin-top: 10px; color: #666666;">Data</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 3em;">🧮</div>
+                            <div style="margin-top: 10px; color: #666666;">Modeling</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 3em;">💻</div>
+                            <div style="margin-top: 10px; color: #666666;">Computing</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 3em;">🎯</div>
+                            <div style="margin-top: 10px; color: #666666;">Domain</div>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-box" style="margin-top: 50px; max-width: 700px;">
+                        From Data Fundamentals to Big Data Technologies
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: What is Data Science -->
+        <div class="slide" data-slide="2">
+            <div class="slide-content">
+                <h1>What is Data Science?</h1>
+                <div class="subtitle">The intersection of three core disciplines</div>
+                
+                <div class="description">
+                    Data Science is an interdisciplinary field that combines <strong>statistical modeling</strong>, <strong>computing skills</strong>, and <strong>domain expertise</strong> to extract meaningful insights from data. Different emphasis on each component creates distinct data roles.
+                </div>
+                
+                <div style="display: flex; justify-content: center; margin: 20px 0;">
+                    <div style="position: relative; width: 500px; height: 350px;">
+                        <div style="position: absolute; width: 180px; height: 180px; border: 3px solid #333; border-radius: 50%; background: rgba(200,200,200,0.3); top: 0; left: 160px; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 600;">
+                            🧮 Statistical<br>Modeling
+                        </div>
+                        <div style="position: absolute; width: 180px; height: 180px; border: 3px solid #333; border-radius: 50%; background: rgba(200,200,200,0.3); top: 140px; left: 60px; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 600;">
+                            💻 Computing<br>Skills
+                        </div>
+                        <div style="position: absolute; width: 180px; height: 180px; border: 3px solid #333; border-radius: 50%; background: rgba(200,200,200,0.3); top: 140px; left: 260px; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 600;">
+                            🎯 Domain<br>Knowledge
+                        </div>
+                        <div style="position: absolute; top: 130px; left: 200px; background: #333; color: #fff; padding: 8px 15px; font-weight: 700; border-radius: 4px;">
+                            DATA SCIENCE
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box-light">
+                    <strong>Key Insight:</strong> The dominance of one area over others defines distinct professional roles in the data ecosystem.
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Data Roles Overview -->
+        <div class="slide" data-slide="3">
+            <div class="slide-content">
+                <h1>Data Roles in the Industry</h1>
+                <div class="subtitle">Different specializations based on skill emphasis</div>
+                
+                <div class="content-grid" style="flex: 1;">
+                    <div class="section">
+                        <div class="section-header"><span class="icon">👨‍💻</span> Data Engineer</div>
+                        <p style="color: #555; margin-bottom: 10px;"><strong>Focus:</strong> Computing + Domain</p>
+                        <ul class="item-list">
+                            <li>Build and maintain data pipelines (ETL/ELT)</li>
+                            <li>Design data warehouses and lakes</li>
+                            <li>Ensure data quality and availability</li>
+                            <li>Optimize database performance</li>
+                            <li>Manage big data infrastructure</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header"><span class="icon">🔬</span> Data Scientist</div>
+                        <p style="color: #555; margin-bottom: 10px;"><strong>Focus:</strong> Modeling + Computing + Domain</p>
+                        <ul class="item-list">
+                            <li>Develop predictive models and ML solutions</li>
+                            <li>Perform statistical analysis</li>
+                            <li>Create data-driven insights</li>
+                            <li>Communicate findings to stakeholders</li>
+                            <li>End-to-end project ownership</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header"><span class="icon">📊</span> Data Analyst</div>
+                        <p style="color: #555; margin-bottom: 10px;"><strong>Focus:</strong> Domain + Basic Modeling</p>
+                        <ul class="item-list">
+                            <li>Create reports and dashboards</li>
+                            <li>Perform exploratory data analysis</li>
+                            <li>Answer business questions with data</li>
+                            <li>Track KPIs and metrics</li>
+                            <li>Support decision-making</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header"><span class="icon">🤖</span> ML Engineer</div>
+                        <p style="color: #555; margin-bottom: 10px;"><strong>Focus:</strong> Computing + Modeling</p>
+                        <ul class="item-list">
+                            <li>Deploy ML models to production</li>
+                            <li>Build scalable ML systems</li>
+                            <li>Optimize model performance</li>
+                            <li>Create ML pipelines (MLOps)</li>
+                            <li>Monitor model drift and retrain</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: More Data Roles -->
+        <div class="slide" data-slide="4">
+            <div class="slide-content">
+                <h1>Additional Data Roles</h1>
+                <div class="subtitle">Specialized positions in the data ecosystem</div>
+                
+                <div class="content-grid" style="flex: 1;">
+                    <div class="section">
+                        <div class="section-header"><span class="icon">🏗️</span> Data Architect</div>
+                        <p style="color: #555; margin-bottom: 10px;"><strong>Focus:</strong> Computing + Domain Strategy</p>
+                        <ul class="item-list">
+                            <li>Design overall data architecture</li>
+                            <li>Define data standards and policies</li>
+                            <li>Plan technology stack</li>
+                            <li>Ensure scalability and security</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header"><span class="icon">📈</span> Business Intelligence Analyst</div>
+                        <p style="color: #555; margin-bottom: 10px;"><strong>Focus:</strong> Domain + Visualization</p>
+                        <ul class="item-list">
+                            <li>Build BI dashboards (Tableau, PowerBI)</li>
+                            <li>Create executive reports</li>
+                            <li>Define business metrics</li>
+                            <li>Support strategic decisions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header"><span class="icon">🔍</span> Research Scientist</div>
+                        <p style="color: #555; margin-bottom: 10px;"><strong>Focus:</strong> Deep Modeling + Theory</p>
+                        <ul class="item-list">
+                            <li>Develop new algorithms</li>
+                            <li>Publish research papers</li>
+                            <li>Push state-of-the-art</li>
+                            <li>Prototype novel approaches</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header"><span class="icon">🛡️</span> Data Governance Specialist</div>
+                        <p style="color: #555; margin-bottom: 10px;"><strong>Focus:</strong> Compliance + Quality</p>
+                        <ul class="item-list">
+                            <li>Ensure regulatory compliance (GDPR)</li>
+                            <li>Manage data lineage</li>
+                            <li>Define access controls</li>
+                            <li>Monitor data quality</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    Roles often overlap — modern data professionals need broad skills with deep expertise in one area
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Skill Sets by Role -->
+        <div class="slide" data-slide="5">
+            <div class="slide-content">
+                <h1>Skill Sets by Role</h1>
+                <div class="subtitle">Technical competencies required for each position</div>
+                
+                <table style="flex: 1;">
+                    <tr>
+                        <th>Role</th>
+                        <th>Programming</th>
+                        <th>Data Tools</th>
+                        <th>Modeling</th>
+                        <th>Soft Skills</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Data Engineer</strong></td>
+                        <td>Python, Scala, SQL, Java</td>
+                        <td>Spark, Airflow, Kafka, AWS/GCP</td>
+                        <td>Basic ML understanding</td>
+                        <td>System design, Problem-solving</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Data Scientist</strong></td>
+                        <td>Python, R, SQL</td>
+                        <td>Pandas, Jupyter, Git, Cloud</td>
+                        <td>ML, Statistics, Deep Learning</td>
+                        <td>Communication, Business acumen</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Data Analyst</strong></td>
+                        <td>SQL, Python/R basics</td>
+                        <td>Excel, Tableau, PowerBI</td>
+                        <td>Descriptive stats, Regression</td>
+                        <td>Storytelling, Domain expertise</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ML Engineer</strong></td>
+                        <td>Python, C++, SQL</td>
+                        <td>Docker, K8s, MLflow, TensorFlow</td>
+                        <td>ML algorithms, Optimization</td>
+                        <td>DevOps, System design</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Data Architect</strong></td>
+                        <td>SQL, Python</td>
+                        <td>Cloud platforms, RDBMS, NoSQL</td>
+                        <td>Data modeling concepts</td>
+                        <td>Leadership, Strategic thinking</td>
+                    </tr>
+                    <tr>
+                        <td><strong>BI Analyst</strong></td>
+                        <td>SQL, Basic Python</td>
+                        <td>Tableau, PowerBI, Looker</td>
+                        <td>Basic statistics</td>
+                        <td>Visualization, Presentation</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Slide 6: Data Workflow -->
+        <div class="slide" data-slide="6">
+            <div class="slide-content">
+                <h1>The Data Workflow</h1>
+                <div class="subtitle">End-to-end data lifecycle and role specializations</div>
+                
+                <div class="flow-diagram" style="margin: 30px 0;">
+                    <div class="flow-box">📥 Data<br>Collection</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-box">🔧 Data<br>Engineering</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-box">🗄️ Storage &<br>Processing</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-box">🔍 Analysis &<br>Exploration</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-box">🧠 Modeling &<br>ML</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-box">🚀 Deployment</div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-box">📊 Insights &<br>Decisions</div>
+                </div>
+                
+                <div class="content-grid" style="margin-top: 20px;">
+                    <div class="section">
+                        <div class="section-header">👨‍💻 Data Engineer Domain</div>
+                        <ul class="item-list">
+                            <li><strong>Collection:</strong> Build ingestion pipelines, APIs</li>
+                            <li><strong>Engineering:</strong> ETL/ELT processes, data cleaning</li>
+                            <li><strong>Storage:</strong> Data warehouses, lakes, databases</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header">🔬 Data Scientist Domain</div>
+                        <ul class="item-list">
+                            <li><strong>Analysis:</strong> EDA, statistical testing</li>
+                            <li><strong>Modeling:</strong> ML development, feature engineering</li>
+                            <li><strong>Insights:</strong> Interpretation, recommendations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header">📊 Data Analyst Domain</div>
+                        <ul class="item-list">
+                            <li><strong>Exploration:</strong> Ad-hoc queries, reports</li>
+                            <li><strong>Analysis:</strong> Descriptive statistics, trends</li>
+                            <li><strong>Insights:</strong> Dashboards, business reports</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header">🤖 ML Engineer Domain</div>
+                        <ul class="item-list">
+                            <li><strong>Modeling:</strong> Model optimization, scaling</li>
+                            <li><strong>Deployment:</strong> Production systems, APIs</li>
+                            <li><strong>Monitoring:</strong> Model performance, retraining</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Focus on Data Scientist -->
+        <div class="slide" data-slide="7">
+            <div class="slide-content">
+                <h1>The Data Scientist Role</h1>
+                <div class="subtitle">The "Swiss Army Knife" of data — combining multiple disciplines</div>
+                
+                <div class="description">
+                    A Data Scientist works across the entire data pipeline: from understanding business problems, to collecting and cleaning data, building models, and communicating results to stakeholders. They bridge the gap between technical solutions and business value.
+                </div>
+                
+                <div class="content-grid">
+                    <div class="section">
+                        <div class="section-header">🎯 Core Responsibilities</div>
+                        <ul class="item-list">
+                            <li>Define problems in measurable terms</li>
+                            <li>Collect, clean, and transform data</li>
+                            <li>Build and evaluate predictive models</li>
+                            <li>Extract actionable insights</li>
+                            <li>Communicate findings effectively</li>
+                            <li>Deploy and monitor solutions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header">📚 Required Knowledge</div>
+                        <ul class="item-list">
+                            <li><strong>Statistics:</strong> Probability, hypothesis testing, regression</li>
+                            <li><strong>Machine Learning:</strong> Supervised, unsupervised, deep learning</li>
+                            <li><strong>Programming:</strong> Python/R, SQL, version control</li>
+                            <li><strong>Data Engineering:</strong> ETL basics, databases, big data</li>
+                            <li><strong>Domain:</strong> Industry-specific knowledge</li>
+                            <li><strong>Communication:</strong> Visualization, storytelling</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    Data Scientists spend 60-80% of their time on data preparation — understanding databases and data engineering is essential
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Real-Life DS Projects -->
+        <div class="slide" data-slide="8">
+            <div class="slide-content">
+                <h1>Real-Life Data Science Projects</h1>
+                <div class="subtitle">Four industry examples of data science in action</div>
+                
+                <div class="content-grid" style="flex: 1;">
+                    <div class="section">
+                        <div class="section-header"><span class="icon">🛒</span> Retail: Demand Forecasting</div>
+                        <p style="color: #555; margin-bottom: 10px;"><strong>Company:</strong> Walmart, Amazon</p>
+                        <p style="color: #555; margin-bottom: 8px;"><strong>Problem:</strong> Predict product demand to optimize inventory</p>
+                        <p style="color: #555; margin-bottom: 8px;"><strong>Data:</strong> Sales history, seasonality, promotions, weather</p>
+                        <p style="color: #555; margin-bottom: 8px;"><strong>Methods:</strong> Time series (ARIMA, Prophet), XGBoost</p>
+                        <p style="color: #333;"><strong>Impact:</strong> Reduce stockouts by 30%, cut excess inventory costs</p>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header"><span class="icon">🏦</span> Finance: Fraud Detection</div>
+                        <p style="color: #555; margin-bottom: 10px;"><strong>Company:</strong> PayPal, Visa</p>
+                        <p style="color: #555; margin-bottom: 8px;"><strong>Problem:</strong> Identify fraudulent transactions in real-time</p>
+                        <p style="color: #555; margin-bottom: 8px;"><strong>Data:</strong> Transaction patterns, user behavior, device info</p>
+                        <p style="color: #555; margin-bottom: 8px;"><strong>Methods:</strong> Anomaly detection, Random Forest, Neural Networks</p>
+                        <p style="color: #333;"><strong>Impact:</strong> Block 99% of fraud, save billions annually</p>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header"><span class="icon">🏥</span> Healthcare: Disease Prediction</div>
+                        <p style="color: #555; margin-bottom: 10px;"><strong>Company:</strong> Google Health, IBM Watson</p>
+                        <p style="color: #555; margin-bottom: 8px;"><strong>Problem:</strong> Early detection of diseases from medical images</p>
+                        <p style="color: #555; margin-bottom: 8px;"><strong>Data:</strong> X-rays, MRIs, patient records</p>
+                        <p style="color: #555; margin-bottom: 8px;"><strong>Methods:</strong> CNNs, Transfer learning, Image segmentation</p>
+                        <p style="color: #333;"><strong>Impact:</strong> Detect cancer earlier than human doctors</p>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header"><span class="icon">🎬</span> Entertainment: Recommendation Systems</div>
+                        <p style="color: #555; margin-bottom: 10px;"><strong>Company:</strong> Netflix, Spotify</p>
+                        <p style="color: #555; margin-bottom: 8px;"><strong>Problem:</strong> Recommend content users will enjoy</p>
+                        <p style="color: #555; margin-bottom: 8px;"><strong>Data:</strong> Watch history, ratings, user demographics</p>
+                        <p style="color: #555; margin-bottom: 8px;"><strong>Methods:</strong> Collaborative filtering, Matrix factorization, Deep learning</p>
+                        <p style="color: #333;"><strong>Impact:</strong> 80% of Netflix views from recommendations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Course Outline -->
+        <div class="slide" data-slide="9">
+            <div class="slide-content">
+                <h1>Course Outline</h1>
+                <div class="subtitle">4-Month Data Science Applications Program</div>
+                
+                <div class="content-grid" style="flex: 1;">
+                    <div class="module-box">
+                        <div class="module-title">📚 Module 1: Fundamentals & EDA (4-6 weeks)</div>
+                        <ul class="item-list">
+                            <li>Data Science Tools and Environments</li>
+                            <li>Big Data Technologies (Hadoop, Spark)</li>
+                            <li>Introduction to Databases (SQL, NoSQL)</li>
+                            <li>Data Processing with PySpark</li>
+                            <li>Building ETL Pipelines</li>
+                            <li>Full EDA on Real-World Datasets</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-box">
+                        <div class="module-title">📊 Module 2: Statistics & ML (6-8 weeks)</div>
+                        <ul class="item-list">
+                            <li>Hypothesis Testing (T-tests, Chi-Square)</li>
+                            <li>Analysis of Variance (ANOVA)</li>
+                            <li>Regression Analysis (Linear, Logistic, Polynomial)</li>
+                            <li>Time Series Analysis and Forecasting</li>
+                            <li>Supervised Learning (Trees, Forests, Boosting)</li>
+                            <li>Unsupervised Learning (Clustering)</li>
+                            <li>Model Evaluation and Validation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-box">
+                        <div class="module-title">🧠 Module 3: Deep Learning (4-6 weeks)</div>
+                        <ul class="item-list">
+                            <li>Neural Network Fundamentals</li>
+                            <li>TensorFlow/Keras & PyTorch</li>
+                            <li>CNNs for Image Data</li>
+                            <li>RNNs for Time-Series</li>
+                            <li>NLP for Text Data</li>
+                            <li>Advanced Time Series Techniques</li>
+                            <li>Model Tuning and Optimization</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-box">
+                        <div class="module-title">🚀 Module 4: Capstone Project (4 weeks)</div>
+                        <ul class="item-list">
+                            <li>Project Planning and Design</li>
+                            <li>Data Collection and Preprocessing</li>
+                            <li>Model Selection and Evaluation</li>
+                            <li>Building and Refining Solution</li>
+                            <li>Deployment (Cloud/On-Premise)</li>
+                            <li>Final Presentation and Documentation</li>
+                            <li>Peer Review and Feedback</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Part 2 - Data Types -->
+        <div class="slide" data-slide="10">
+            <div class="slide-content">
+                <h1>Data Types and Classification</h1>
+                <div class="subtitle">Understanding the structural classification of data</div>
+                
+                <div class="content-grid-3" style="flex: 1;">
+                    <div class="section">
+                        <div class="section-header"><span class="icon">📋</span> Structured Data</div>
+                        <p style="color: #555; margin-bottom: 15px;">Fixed schema, tabular format with rows and columns</p>
+                        <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;"><strong>Storage:</strong> RDBMS (PostgreSQL, MySQL)</p>
+                        <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;"><strong>Query:</strong> SQL, DataFrame operations</p>
+                        <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;"><strong>Examples:</strong></p>
+                        <ul class="item-list">
+                            <li>Database tables</li>
+                            <li>CSV files</li>
+                            <li>Excel spreadsheets</li>
+                            <li>Transaction records</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header"><span class="icon">📎</span> Semi-Structured Data</div>
+                        <p style="color: #555; margin-bottom: 15px;">Variable fields, hierarchical structure, self-describing</p>
+                        <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;"><strong>Storage:</strong> JSON, XML, Parquet</p>
+                        <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;"><strong>Query:</strong> JSONPath, XPath, nested ops</p>
+                        <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;"><strong>Examples:</strong></p>
+                        <ul class="item-list">
+                            <li>JSON documents</li>
+                            <li>XML files</li>
+                            <li>Log files</li>
+                            <li>API responses</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header"><span class="icon">📄</span> Unstructured Data</div>
+                        <p style="color: #555; margin-bottom: 15px;">No predefined structure, free-form content</p>
+                        <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;"><strong>Storage:</strong> Object storage, Data lakes</p>
+                        <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;"><strong>Processing:</strong> NLP, Computer Vision</p>
+                        <p style="color: #666; font-size: 0.9em; margin-bottom: 10px;"><strong>Examples:</strong></p>
+                        <ul class="item-list">
+                            <li>Text documents, emails</li>
+                            <li>Images, photos</li>
+                            <li>Audio, video</li>
+                            <li>Social media posts</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    80% of enterprise data is unstructured — but structured data is where most analysis happens
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Data Collection Methods -->
+        <div class="slide" data-slide="11">
+            <div class="slide-content">
+                <h1>Data Collection Methods</h1>
+                <div class="subtitle">Primary and secondary data sources for data scientists</div>
+                
+                <div class="content-grid">
+                    <div class="section">
+                        <div class="section-header"><span class="icon">🆕</span> Primary Data Collection</div>
+                        <p style="color: #555; margin-bottom: 15px;">Data you collect specifically for your analysis</p>
+                        
+                        <div style="margin-bottom: 12px; padding: 10px; background: #f0f0f0;">
+                            <strong>📝 Surveys & Questionnaires</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">Direct questions, controlled but potential bias</span>
+                        </div>
+                        <div style="margin-bottom: 12px; padding: 10px; background: #f0f0f0;">
+                            <strong>👁️ Event Tracking</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">Track behavior (clicks, actions) — real but no "why"</span>
+                        </div>
+                        <div style="padding: 10px; background: #f0f0f0;">
+                            <strong>📡 Sensors & IoT</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">Continuous, objective, high frequency data</span>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header"><span class="icon">📚</span> Secondary Data Collection</div>
+                        <p style="color: #555; margin-bottom: 15px;">Using existing data sources</p>
+                        
+                        <div style="margin-bottom: 12px; padding: 10px; background: #f0f0f0;">
+                            <strong>🌐 Public Datasets</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">Kaggle, census.gov, World Bank — free, large-scale</span>
+                        </div>
+                        <div style="margin-bottom: 12px; padding: 10px; background: #f0f0f0;">
+                            <strong>🔌 APIs</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">Twitter API, Weather API — structured, auto-updated</span>
+                        </div>
+                        <div style="margin-bottom: 12px; padding: 10px; background: #f0f0f0;">
+                            <strong>🗄️ Internal Databases</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">Company CRM, sales data — SQL queries</span>
+                        </div>
+                        <div style="padding: 10px; background: #f0f0f0;">
+                            <strong>🕷️ Web Scraping</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">BeautifulSoup, Scrapy — check legal/ethical</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box-light">
+                    <strong>Data Quality Checks:</strong> Completeness (missing values?), Accuracy (correct?), Consistency (same format?), Timeliness (current enough?)
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Events and Data Generation -->
+        <div class="slide" data-slide="12">
+            <div class="slide-content">
+                <h1>Events and Data Generation</h1>
+                <div class="subtitle">Understanding how data is created and captured</div>
+                
+                <div class="description">
+                    <strong>Core Principle:</strong> Every piece of data begins as a real-world event that gets captured and stored. Understanding data lineage helps you know the quality and limitations of your data.
+                </div>
+                
+                <div class="content-grid" style="flex: 1;">
+                    <div class="section">
+                        <div class="section-header">Event Data Structure (JSON)</div>
+                        <div class="code-block">
+{<br>
+&nbsp;&nbsp;"event_type": "button_click",<br>
+&nbsp;&nbsp;"event_time": "2024-03-15T14:23:45Z",<br>
+&nbsp;&nbsp;"user_id": "user_12345",<br>
+&nbsp;&nbsp;"button_id": "checkout_button",<br>
+&nbsp;&nbsp;"page_url": "/cart",<br>
+&nbsp;&nbsp;"session_id": "sess_abc123",<br>
+&nbsp;&nbsp;"device_type": "mobile"<br>
+}
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header">Key Event Fields</div>
+                        <ul class="item-list">
+                            <li><strong>event_type</strong> — What happened (click, view, purchase)</li>
+                            <li><strong>event_time</strong> — When it occurred (timestamp)</li>
+                            <li><strong>user_id</strong> — Who performed the action</li>
+                            <li><strong>page_url</strong> — Where it happened (context)</li>
+                            <li><strong>session_id</strong> — Groups events in single visit</li>
+                            <li><strong>device_type</strong> — Environment info</li>
+                        </ul>
+                        <div style="margin-top: 15px; padding: 10px; background: #e8e8e8; font-size: 0.9em;">
+                            Each row in your database = one discrete action
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    Example: One Amazon purchase creates data in 6+ systems: e-commerce, payment, inventory, shipping, CRM, analytics
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13: Data Lineage and Quality -->
+        <div class="slide" data-slide="13">
+            <div class="slide-content">
+                <h1>Data Lineage and Quality</h1>
+                <div class="subtitle">Why understanding data source affects model quality</div>
+                
+                <div class="content-grid">
+                    <div class="section">
+                        <div class="section-header">📍 Data Lineage Example</div>
+                        <div style="font-family: 'Courier New', monospace; font-size: 0.9em; line-height: 1.8; color: #555;">
+                            <strong>Raw Event:</strong> User clicked "Buy Now" at 2:35:42 PM<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+                            <strong>Web Server Log:</strong> Request at 2:35:42.123 PM<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+                            <strong>Analytics Platform:</strong> Event at 2:35:42.456 PM (300ms delay)<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+                            <strong>Data Warehouse:</strong> Batch load at 3:00:00 PM (24-min delay)<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+                            <strong>Your Analysis:</strong> Query run at 4:15:00 PM
+                        </div>
+                        <div style="margin-top: 15px; padding: 10px; background: #f5f5f5; font-size: 0.9em;">
+                            <strong>Insight:</strong> "This analysis includes purchases up to 3 PM, not real-time"
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header">⚠️ Why This Matters for Models</div>
+                        <ul class="item-list">
+                            <li><strong>Timing Gaps:</strong> Events may have delays between systems</li>
+                            <li><strong>Missing Data:</strong> Some events may not be captured</li>
+                            <li><strong>Source of Truth:</strong> Different systems may show different values</li>
+                            <li><strong>Tracking Decisions:</strong> What wasn't tracked can't be analyzed</li>
+                        </ul>
+                        
+                        <div style="margin-top: 15px; padding: 10px; background: #f5f5f5;">
+                            <strong>Example Impact:</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">Product Manager tracks click-through rate but not time spent viewing recommendations → Can't analyze if position affects engagement</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box-light">
+                    <strong>Data Scientist's Role:</strong> Understand where data comes from, how it was collected, what biases exist, and what limitations affect your analysis.
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Event Architecture -->
+        <div class="slide" data-slide="14">
+            <div class="slide-content">
+                <h1>Event-Driven Architecture</h1>
+                <div class="subtitle">Critical design decisions that affect your data</div>
+                
+                <div class="content-grid-3" style="flex: 1;">
+                    <div class="section">
+                        <div class="section-header">🎚️ Granularity Decision</div>
+                        <div style="padding: 10px; background: #f0f0f0; margin-bottom: 10px;">
+                            <strong>High Granularity</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">Track every mouse movement, scroll, hover</span><br>
+                            <span style="font-size: 0.85em; color: #228B22;">✓ Rich behavioral data</span><br>
+                            <span style="font-size: 0.85em; color: #B22222;">✗ Massive volume, privacy concerns</span>
+                        </div>
+                        <div style="padding: 10px; background: #f0f0f0;">
+                            <strong>Low Granularity</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">Track only major actions (clicks, purchases)</span><br>
+                            <span style="font-size: 0.85em; color: #228B22;">✓ Manageable volume, clear signals</span><br>
+                            <span style="font-size: 0.85em; color: #B22222;">✗ Miss subtle patterns</span>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header">⏱️ Timing Decision</div>
+                        <div style="padding: 10px; background: #f0f0f0; margin-bottom: 10px;">
+                            <strong>Synchronous</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">Wait to log before showing confirmation</span><br>
+                            <span style="font-size: 0.85em; color: #228B22;">✓ Guaranteed capture</span><br>
+                            <span style="font-size: 0.85em; color: #B22222;">✗ Slower user experience</span>
+                        </div>
+                        <div style="padding: 10px; background: #f0f0f0;">
+                            <strong>Asynchronous</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">Show confirmation, log in background</span><br>
+                            <span style="font-size: 0.85em; color: #228B22;">✓ Faster experience</span><br>
+                            <span style="font-size: 0.85em; color: #B22222;">✗ May lose data if user closes</span>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header">📜 Event Sourcing</div>
+                        <div style="padding: 10px; background: #f0f0f0; margin-bottom: 10px;">
+                            <strong>Without Event Sourcing</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">Only current state: balance = $150</span><br>
+                            <span style="font-size: 0.85em; color: #B22222;">✗ Can't see history</span>
+                        </div>
+                        <div style="padding: 10px; background: #f0f0f0;">
+                            <strong>With Event Sourcing</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">All events: created($0) → deposit($100) → deposit($75) → withdraw($25) = $150</span><br>
+                            <span style="font-size: 0.85em; color: #228B22;">✓ Full history, replay, audit trail</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    Client-side vs Server-side tracking can show different click counts — implementation affects your analysis!
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 15: Traditional vs Big Data -->
+        <div class="slide" data-slide="15">
+            <div class="slide-content">
+                <h1>Traditional Data vs Big Data</h1>
+                <div class="subtitle">Understanding when you need big data technologies</div>
+                
+                <table style="margin-bottom: 20px;">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Traditional Data</th>
+                        <th>Big Data</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Volume</strong></td>
+                        <td>GB to low TB (fits on laptop)</td>
+                        <td>TB to PB (needs distributed systems)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Processing</strong></td>
+                        <td>Single machine, O(n)</td>
+                        <td>Distributed, O(n/p) + O(log p)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Storage</strong></td>
+                        <td>Row-oriented (RDBMS)</td>
+                        <td>Column-oriented, distributed (HDFS)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Scaling</strong></td>
+                        <td>Vertical (bigger server) — Cost ~ n²</td>
+                        <td>Horizontal (more servers) — Cost ~ n</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Consistency</strong></td>
+                        <td>Strong (ACID)</td>
+                        <td>Eventual (BASE)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Latency</strong></td>
+                        <td>Batch (minutes-hours)</td>
+                        <td>Stream + Batch (milliseconds-hours)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Data Types</strong></td>
+                        <td>Structured only</td>
+                        <td>Structured + Semi + Unstructured</td>
+                    </tr>
+                </table>
+                
+                <div class="highlight-box-light">
+                    <strong>Rule of Thumb:</strong> If your data fits in RAM (Pandas can handle it), use traditional tools. If not, consider Big Data technologies.
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 16: The 3 V's of Big Data -->
+        <div class="slide" data-slide="16">
+            <div class="slide-content">
+                <h1>The 3 V's of Big Data</h1>
+                <div class="subtitle">Core characteristics that define big data challenges</div>
+                
+                <div class="content-grid-3" style="flex: 1;">
+                    <div class="section" style="border-width: 3px;">
+                        <div class="section-header" style="font-size: 1.4em;"><span class="icon">📦</span> Volume</div>
+                        <p style="color: #555; margin-bottom: 15px; font-size: 1.1em;">Scale of data</p>
+                        
+                        <div style="padding: 10px; background: #f0f0f0; margin-bottom: 10px; font-size: 0.9em;">
+                            <strong>Examples:</strong><br>
+                            • Facebook: 4 PB/day<br>
+                            • Twitter: 500M tweets/day<br>
+                            • Netflix: 15 PB stored
+                        </div>
+                        
+                        <div style="padding: 10px; background: #e0e0e0; font-size: 0.9em;">
+                            <strong>Data Sizes:</strong><br>
+                            1 TB = ~500 movies<br>
+                            1 PB = 1,024 TB<br>
+                            1 EB = 1,024 PB
+                        </div>
+                        
+                        <div style="margin-top: 15px; padding: 8px; background: #333; color: #fff; text-align: center; font-size: 0.9em;">
+                            Traditional: ≤ 1TB<br>Big Data: TB → EB
+                        </div>
+                    </div>
+                    
+                    <div class="section" style="border-width: 3px;">
+                        <div class="section-header" style="font-size: 1.4em;"><span class="icon">⚡</span> Velocity</div>
+                        <p style="color: #555; margin-bottom: 15px; font-size: 1.1em;">Speed of data</p>
+                        
+                        <div style="padding: 10px; background: #f0f0f0; margin-bottom: 10px; font-size: 0.9em;">
+                            <strong>Examples:</strong><br>
+                            • IoT: millions/second<br>
+                            • Stock market: microseconds<br>
+                            • Social media: real-time streams
+                        </div>
+                        
+                        <div style="padding: 10px; background: #e0e0e0; font-size: 0.9em;">
+                            <strong>Processing Speed:</strong><br>
+                            Batch: hours/days<br>
+                            Stream: milliseconds
+                        </div>
+                        
+                        <div style="margin-top: 15px; padding: 8px; background: #333; color: #fff; text-align: center; font-size: 0.9em;">
+                            Traditional: Batch<br>Big Data: Real-time
+                        </div>
+                    </div>
+                    
+                    <div class="section" style="border-width: 3px;">
+                        <div class="section-header" style="font-size: 1.4em;"><span class="icon">🎨</span> Variety</div>
+                        <p style="color: #555; margin-bottom: 15px; font-size: 1.1em;">Types of data</p>
+                        
+                        <div style="padding: 10px; background: #f0f0f0; margin-bottom: 10px; font-size: 0.9em;">
+                            <strong>Types:</strong><br>
+                            • Structured: databases<br>
+                            • Semi-structured: JSON, XML<br>
+                            • Unstructured: text, images, video
+                        </div>
+                        
+                        <div style="padding: 10px; background: #e0e0e0; font-size: 0.9em;">
+                            <strong>Sources:</strong><br>
+                            Hundreds of different systems, formats, schemas
+                        </div>
+                        
+                        <div style="margin-top: 15px; padding: 8px; background: #333; color: #fff; text-align: center; font-size: 0.9em;">
+                            Traditional: Structured<br>Big Data: All types
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    Additional V's: Veracity (quality/trustworthiness) and Value (business insight from raw data)
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 17: Big Data Architecture -->
+        <div class="slide" data-slide="17">
+            <div class="slide-content">
+                <h1>Big Data Architecture</h1>
+                <div class="subtitle">Traditional vs Modern distributed architecture</div>
+                
+                <div class="content-grid">
+                    <div class="section">
+                        <div class="section-header"><span class="icon">📊</span> Traditional Architecture</div>
+                        <div class="flow-diagram" style="justify-content: flex-start; margin: 15px 0;">
+                            <div class="flow-box" style="font-size: 0.85em;">Data<br>Sources</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-box" style="font-size: 0.85em;">ETL</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-box" style="font-size: 0.85em;">Single<br>Database</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-box" style="font-size: 0.85em;">BI<br>Tools</div>
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <p style="color: #B22222; font-size: 0.9em; margin-bottom: 5px;">✗ Single server bottleneck</p>
+                            <p style="color: #B22222; font-size: 0.9em; margin-bottom: 5px;">✗ Vertical scaling expensive</p>
+                            <p style="color: #B22222; font-size: 0.9em; margin-bottom: 5px;">✗ Batch processing only</p>
+                            <p style="color: #B22222; font-size: 0.9em;">✗ Structured data only</p>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header"><span class="icon">🚀</span> Big Data Architecture</div>
+                        <div style="font-family: 'Courier New', monospace; font-size: 0.85em; line-height: 1.6; color: #555; text-align: center; padding: 10px; background: #f5f5f5;">
+                            Multiple Sources<br>
+                            ↓<br>
+                            Streaming Ingestion (Kafka)<br>
+                            ↓<br>
+                            Distributed Storage (HDFS/S3)<br>
+                            ↓<br>
+                            Distributed Processing (Spark)<br>
+                            ↓<br>
+                            Analytics & ML
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <p style="color: #228B22; font-size: 0.9em; margin-bottom: 5px;">✓ Horizontal scaling (add servers)</p>
+                            <p style="color: #228B22; font-size: 0.9em; margin-bottom: 5px;">✓ Fault tolerant</p>
+                            <p style="color: #228B22; font-size: 0.9em; margin-bottom: 5px;">✓ Real-time + batch</p>
+                            <p style="color: #228B22; font-size: 0.9em;">✓ All data types</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box-light">
+                    <strong>Key Insight:</strong> Big Data uses commodity hardware (cheap servers) with horizontal scaling instead of expensive specialized hardware.
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 18: MapReduce -->
+        <div class="slide" data-slide="18">
+            <div class="slide-content">
+                <h1>MapReduce</h1>
+                <div class="subtitle">The foundational big data processing model</div>
+                
+                <div class="description">
+                    MapReduce is a programming model for processing huge datasets across many machines with two phases: <strong>MAP</strong> (transform each record independently) and <strong>REDUCE</strong> (combine/aggregate results).
+                </div>
+                
+                <div class="content-grid" style="flex: 1;">
+                    <div class="section">
+                        <div class="section-header">Word Count Example</div>
+                        <div class="code-block" style="font-size: 0.8em;">
+INPUT (3 machines):<br>
+Machine 1: "hello world"<br>
+Machine 2: "hello there"<br>
+Machine 3: "world world"<br>
+<br>
+STEP 1: MAP (parallel)<br>
+M1: (hello,1), (world,1)<br>
+M2: (hello,1), (there,1)<br>
+M3: (world,1), (world,1)<br>
+<br>
+STEP 2: SHUFFLE (group by key)<br>
+hello → [(hello,1), (hello,1)]<br>
+world → [(world,1), (world,1), (world,1)]<br>
+there → [(there,1)]<br>
+<br>
+STEP 3: REDUCE (aggregate)<br>
+hello: 1+1 = 2<br>
+world: 1+1+1 = 3<br>
+there: 1
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header">Key Concepts for Data Scientists</div>
+                        <ul class="item-list">
+                            <li><strong>Parallel Processing:</strong> Work divided across machines</li>
+                            <li><strong>Data Locality:</strong> Process data where it's stored</li>
+                            <li><strong>Fault Tolerance:</strong> Failed tasks automatically retry</li>
+                            <li><strong>Scalability:</strong> Add machines for more data</li>
+                        </ul>
+                        
+                        <div style="margin-top: 20px; padding: 15px; background: #f0f0f0;">
+                            <strong>Limitation:</strong><br>
+                            <span style="color: #666; font-size: 0.9em;">MapReduce writes to disk after each step — slow for iterative algorithms (ML)</span>
+                        </div>
+                        
+                        <div style="margin-top: 15px; padding: 10px; background: #333; color: #fff; text-align: center;">
+                            Time: O(n/p) + O(log p)<br>
+                            <span style="font-size: 0.85em;">n=data, p=machines</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 19: Apache Spark -->
+        <div class="slide" data-slide="19">
+            <div class="slide-content">
+                <h1>Apache Spark</h1>
+                <div class="subtitle">Fast, general-purpose distributed processing engine</div>
+                
+                <div class="content-grid">
+                    <div class="section">
+                        <div class="section-header"><span class="icon">⚡</span> Why Spark is Faster</div>
+                        <div style="font-family: 'Courier New', monospace; font-size: 0.85em; padding: 15px; background: #f5f5f5; margin-bottom: 15px;">
+                            <strong>MapReduce (slow):</strong><br>
+                            Step 1 → Disk → Step 2 → Disk → Step 3<br><br>
+                            <strong>Spark (fast):</strong><br>
+                            Step 1 → Memory → Step 2 → Memory → Step 3
+                        </div>
+                        <p style="color: #555; margin-bottom: 10px;"><strong>Result:</strong> Spark is 10-100x faster for iterative algorithms (ML)</p>
+                        <ul class="item-list">
+                            <li>In-memory processing</li>
+                            <li>Lazy evaluation (optimized execution)</li>
+                            <li>Rich API (Python, Scala, R, SQL)</li>
+                            <li>Unified engine for batch + streaming</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header"><span class="icon">🐍</span> PySpark Example</div>
+                        <div class="code-block" style="font-size: 0.8em;">
+from pyspark.sql import SparkSession<br>
+<br>
+# Initialize Spark<br>
+spark = SparkSession.builder.getOrCreate()<br>
+<br>
+# Read distributed data<br>
+df = spark.read.csv("s3://data/sales/")<br>
+<br>
+# Transformations (lazy)<br>
+result = df \<br>
+&nbsp;&nbsp;.filter(df.amount > 100) \<br>
+&nbsp;&nbsp;.groupBy("product") \<br>
+&nbsp;&nbsp;.agg({"amount": "sum"})<br>
+<br>
+# Action (triggers execution)<br>
+result.show()
+                        </div>
+                        
+                        <div style="margin-top: 15px; padding: 10px; background: #f0f0f0; font-size: 0.9em;">
+                            <strong>Key:</strong> Transformations are lazy, Actions trigger computation
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    Use Pandas for &lt;1GB, Spark for &gt;1GB — choose the simplest tool that handles your data size
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 20: Spark Components -->
+        <div class="slide" data-slide="20">
+            <div class="slide-content">
+                <h1>Spark Ecosystem</h1>
+                <div class="subtitle">What data scientists need to know</div>
+                
+                <div class="content-grid-4" style="margin-bottom: 20px;">
+                    <div class="section">
+                        <div class="section-header" style="font-size: 1em;"><span class="icon">🗃️</span> Spark SQL</div>
+                        <p style="color: #555; font-size: 0.85em;">Query structured data with SQL or DataFrames</p>
+                        <p style="color: #666; font-size: 0.8em; margin-top: 10px;"><strong>Use:</strong> Data exploration, ETL</p>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header" style="font-size: 1em;"><span class="icon">🤖</span> MLlib</div>
+                        <p style="color: #555; font-size: 0.85em;">Scalable machine learning library</p>
+                        <p style="color: #666; font-size: 0.8em; margin-top: 10px;"><strong>Use:</strong> ML on big data</p>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header" style="font-size: 1em;"><span class="icon">🌊</span> Streaming</div>
+                        <p style="color: #555; font-size: 0.85em;">Real-time data processing</p>
+                        <p style="color: #666; font-size: 0.8em; margin-top: 10px;"><strong>Use:</strong> Live dashboards, alerts</p>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header" style="font-size: 1em;"><span class="icon">🕸️</span> GraphX</div>
+                        <p style="color: #555; font-size: 0.85em;">Graph processing and analytics</p>
+                        <p style="color: #666; font-size: 0.8em; margin-top: 10px;"><strong>Use:</strong> Social networks</p>
+                    </div>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="section">
+                        <div class="section-header">RDD vs DataFrame</div>
+                        <table style="font-size: 0.85em;">
+                            <tr>
+                                <th>Feature</th>
+                                <th>RDD</th>
+                                <th>DataFrame</th>
+                            </tr>
+                            <tr>
+                                <td>Type Safety</td>
+                                <td>Yes</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td>Optimization</td>
+                                <td>Manual</td>
+                                <td>Catalyst (automatic)</td>
+                            </tr>
+                            <tr>
+                                <td>Ease of Use</td>
+                                <td>Complex</td>
+                                <td>SQL-like, simple</td>
+                            </tr>
+                            <tr>
+                                <td>Performance</td>
+                                <td>Good</td>
+                                <td>Better (optimized)</td>
+                            </tr>
+                        </table>
+                        <p style="color: #333; font-size: 0.9em; margin-top: 10px;"><strong>Recommendation:</strong> Use DataFrames for most tasks</p>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header">Performance Tips</div>
+                        <ul class="item-list">
+                            <li><strong>Cache/Persist:</strong> Reuse data across operations</li>
+                            <li><strong>Minimize Shuffles:</strong> Avoid wide transformations</li>
+                            <li><strong>Partition Smartly:</strong> 128MB-1GB per partition</li>
+                            <li><strong>Use Parquet:</strong> Columnar format, compressed</li>
+                            <li><strong>Broadcast:</strong> Small tables (&lt;10MB) to all nodes</li>
+                            <li><strong>Filter Early:</strong> Reduce data before joins</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 21: Databases Overview -->
+        <div class="slide" data-slide="21">
+            <div class="slide-content">
+                <h1>Database Fundamentals</h1>
+                <div class="subtitle">Where your data lives — the foundation of data science work</div>
+                
+                <div class="description">
+                    In industry, you'll spend 60-80% of time on data preparation. Data is scattered across multiple systems: PostgreSQL (user accounts), MySQL (products), MongoDB (profiles), Redis (cache), Snowflake (analytics).
+                </div>
+                
+                <div style="text-align: center; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 0.9em;">
+                    <div style="display: inline-block; text-align: left; padding: 20px; background: #f5f5f5; border: 2px solid #333;">
+ALL DATABASES<br>
+&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+&nbsp;&nbsp;&nbsp;&nbsp;├── SQL (Relational)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;├── OLTP: PostgreSQL, MySQL, Oracle<br>
+&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;└── OLAP: Snowflake, BigQuery, Redshift<br>
+&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+&nbsp;&nbsp;&nbsp;&nbsp;└── NoSQL (Non-Relational)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Document: MongoDB, CouchDB<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Key-Value: Redis, Memcached<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Column-Family: Cassandra, HBase<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── Graph: Neo4j, Neptune
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    Critical Skills: SQL queries (SELECT, JOIN, GROUP BY), understanding table relationships, query performance
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 22: OLTP vs OLAP -->
+        <div class="slide" data-slide="22">
+            <div class="slide-content">
+                <h1>OLTP vs OLAP</h1>
+                <div class="subtitle">Transactional vs Analytical databases</div>
+                
+                <div class="content-grid" style="flex: 1;">
+                    <div class="section">
+                        <div class="section-header"><span class="icon">⚙️</span> OLTP (Transactional)</div>
+                        <p style="color: #555; margin-bottom: 15px;">"Operations" database — day-to-day business</p>
+                        
+                        <ul class="item-list">
+                            <li><strong>Purpose:</strong> Process individual transactions</li>
+                            <li><strong>Examples:</strong> Add to cart, update profile, payments</li>
+                            <li><strong>Optimized for:</strong> WRITES (insert, update, delete)</li>
+                            <li><strong>Data volume:</strong> Single records, small batches</li>
+                            <li><strong>Users:</strong> Thousands concurrent</li>
+                            <li><strong>Storage:</strong> Row-oriented</li>
+                        </ul>
+                        
+                        <div style="margin-top: 15px; padding: 10px; background: #f0f0f0; font-size: 0.9em;">
+                            <strong>Systems:</strong> PostgreSQL, MySQL, Oracle
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header"><span class="icon">📊</span> OLAP (Analytical)</div>
+                        <p style="color: #555; margin-bottom: 15px;">"Analytics" database — complex analysis</p>
+                        
+                        <ul class="item-list">
+                            <li><strong>Purpose:</strong> Analyze historical data</li>
+                            <li><strong>Examples:</strong> Revenue trends, segmentation, forecasting</li>
+                            <li><strong>Optimized for:</strong> READS (complex queries)</li>
+                            <li><strong>Data volume:</strong> Millions to billions of records</li>
+                            <li><strong>Users:</strong> Fewer (analysts, data scientists)</li>
+                            <li><strong>Storage:</strong> Column-oriented</li>
+                        </ul>
+                        
+                        <div style="margin-top: 15px; padding: 10px; background: #f0f0f0; font-size: 0.9em;">
+                            <strong>Systems:</strong> Snowflake, BigQuery, Redshift
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box-light">
+                    <strong>Data Scientist Insight:</strong> You mostly query OLAP systems, but understanding OLTP helps you know where data originates.
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 23: SQL vs NoSQL -->
+        <div class="slide" data-slide="23">
+            <div class="slide-content">
+                <h1>SQL vs NoSQL</h1>
+                <div class="subtitle">When to use relational vs non-relational databases</div>
+                
+                <table style="margin-bottom: 20px;">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>SQL (Relational)</th>
+                        <th>NoSQL (Non-Relational)</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Schema</strong></td>
+                        <td>Fixed, predefined structure</td>
+                        <td>Flexible, can vary by record</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Relationships</strong></td>
+                        <td>Foreign keys, JOINs</td>
+                        <td>Embedded, denormalized</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Consistency</strong></td>
+                        <td>ACID (strong)</td>
+                        <td>BASE (eventual)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Scaling</strong></td>
+                        <td>Vertical (bigger server)</td>
+                        <td>Horizontal (more servers)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Query</strong></td>
+                        <td>SQL (standardized)</td>
+                        <td>Varies by database</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Best For</strong></td>
+                        <td>Structured data, complex joins, transactions</td>
+                        <td>Flexible schemas, massive scale, specific patterns</td>
+                    </tr>
+                </table>
+                
+                <div class="content-grid">
+                    <div class="section" style="padding: 15px;">
+                        <div class="section-header" style="font-size: 1em;">✅ Use SQL When</div>
+                        <p style="font-size: 0.9em; color: #555;">Complex relationships, ACID required, ad-hoc queries, analytics</p>
+                    </div>
+                    <div class="section" style="padding: 15px;">
+                        <div class="section-header" style="font-size: 1em;">✅ Use NoSQL When</div>
+                        <p style="font-size: 0.9em; color: #555;">Flexible schema, massive scale, simple lookups, specific use cases</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    Most companies use BOTH — different tools for different jobs
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 24: Relational Database Concepts -->
+        <div class="slide" data-slide="24">
+            <div class="slide-content">
+                <h1>Relational Database Concepts</h1>
+                <div class="subtitle">Tables, keys, and relationships</div>
+                
+                <div class="content-grid" style="flex: 1;">
+                    <div class="section">
+                        <div class="section-header">Table Structure</div>
+                        <div class="code-block" style="font-size: 0.8em; background: #f5f5f5; color: #333;">
+Table: USERS<br>
+┌──────────┬─────────────┬─────┬──────────┐<br>
+│ user_id  │    name     │ age │   city   │<br>
+│   (PK)   │             │     │          │<br>
+├──────────┼─────────────┼─────┼──────────┤<br>
+│    1     │ Alice Smith │  28 │ New York │<br>
+│    2     │ Bob Jones   │  35 │ Boston   │<br>
+└──────────┴─────────────┴─────┴──────────┘
+                        </div>
+                        
+                        <div style="margin-top: 15px;">
+                            <p style="font-size: 0.9em; margin-bottom: 5px;"><strong>Primary Key (PK):</strong> Unique identifier, never NULL</p>
+                            <p style="font-size: 0.9em; margin-bottom: 5px;"><strong>Foreign Key (FK):</strong> References another table's PK</p>
+                            <p style="font-size: 0.9em;"><strong>Column:</strong> Same data type for all values</p>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header">Relationships</div>
+                        <div style="padding: 10px; background: #f0f0f0; margin-bottom: 10px;">
+                            <strong>One-to-Many (80%)</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">One customer → Many orders</span>
+                        </div>
+                        <div style="padding: 10px; background: #f0f0f0; margin-bottom: 10px;">
+                            <strong>Many-to-Many</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">Students ↔ Courses (needs junction table)</span>
+                        </div>
+                        <div style="padding: 10px; background: #f0f0f0; margin-bottom: 15px;">
+                            <strong>One-to-One (5%)</strong><br>
+                            <span style="font-size: 0.9em; color: #666;">User ↔ User_Profile (security separation)</span>
+                        </div>
+                        
+                        <div style="padding: 10px; background: #333; color: #fff; font-size: 0.9em;">
+                            <strong>Normalization:</strong> Split tables to avoid data duplication and update anomalies
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box-light">
+                    <strong>Key Skill:</strong> Understanding JOINs — combining data from multiple tables based on relationships
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 25: Essential SQL -->
+        <div class="slide" data-slide="25">
+            <div class="slide-content">
+                <h1>Essential SQL for Data Scientists</h1>
+                <div class="subtitle">The queries you'll use every day</div>
+                
+                <div class="content-grid" style="flex: 1;">
+                    <div class="section">
+                        <div class="section-header">Basic Queries</div>
+                        <div class="code-block" style="font-size: 0.75em;">
+-- SELECT with filter<br>
+SELECT name, email <br>
+FROM users <br>
+WHERE city = 'New York';<br>
+<br>
+-- Aggregation<br>
+SELECT department, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COUNT(*) as count,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AVG(salary) as avg_sal<br>
+FROM employees<br>
+GROUP BY department<br>
+HAVING AVG(salary) > 70000;<br>
+<br>
+-- Sorting & Limiting<br>
+SELECT * FROM products<br>
+ORDER BY price DESC<br>
+LIMIT 10;
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header">JOINs</div>
+                        <div class="code-block" style="font-size: 0.75em;">
+-- INNER JOIN (only matches)<br>
+SELECT u.name, o.amount<br>
+FROM users u<br>
+INNER JOIN orders o <br>
+&nbsp;&nbsp;ON u.user_id = o.user_id;<br>
+<br>
+-- LEFT JOIN (all from left + matches)<br>
+SELECT u.name, <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COUNT(o.order_id) as orders<br>
+FROM users u<br>
+LEFT JOIN orders o <br>
+&nbsp;&nbsp;ON u.user_id = o.user_id<br>
+GROUP BY u.user_id, u.name;<br>
+<br>
+-- Multiple JOINs<br>
+SELECT u.name, p.product_name, o.amount<br>
+FROM orders o<br>
+JOIN users u ON o.user_id = u.user_id<br>
+JOIN products p ON o.product_id = p.id;
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    Master: SELECT, JOIN, WHERE, GROUP BY, HAVING, ORDER BY, LIMIT — covers 90% of data science SQL
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 26: NoSQL Types -->
+        <div class="slide" data-slide="26">
+            <div class="slide-content">
+                <h1>NoSQL Database Types</h1>
+                <div class="subtitle">Specialized databases for specific use cases</div>
+                
+                <div class="content-grid-4" style="flex: 1;">
+                    <div class="section">
+                        <div class="section-header" style="font-size: 1em;"><span class="icon">📄</span> Document</div>
+                        <p style="font-size: 0.85em; color: #555; margin-bottom: 10px;"><strong>Examples:</strong> MongoDB, CouchDB</p>
+                        <p style="font-size: 0.85em; color: #666; margin-bottom: 10px;">JSON-like documents, flexible schema, nested data</p>
+                        <p style="font-size: 0.8em; color: #228B22;">✓ Fast development</p>
+                        <p style="font-size: 0.8em; color: #B22222;">✗ Weak joins</p>
+                        <div style="margin-top: 10px; padding: 8px; background: #f0f0f0; font-size: 0.8em;">
+                            <strong>Use:</strong> User profiles, catalogs, CMS
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header" style="font-size: 1em;"><span class="icon">🔑</span> Key-Value</div>
+                        <p style="font-size: 0.85em; color: #555; margin-bottom: 10px;"><strong>Examples:</strong> Redis, Memcached</p>
+                        <p style="font-size: 0.85em; color: #666; margin-bottom: 10px;">Simple key→value lookup, in-memory, microsecond latency</p>
+                        <p style="font-size: 0.8em; color: #228B22;">✓ Extremely fast</p>
+                        <p style="font-size: 0.8em; color: #B22222;">✗ No queries</p>
+                        <div style="margin-top: 10px; padding: 8px; background: #f0f0f0; font-size: 0.8em;">
+                            <strong>Use:</strong> Cache, sessions, counters
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header" style="font-size: 1em;"><span class="icon">📊</span> Column-Family</div>
+                        <p style="font-size: 0.85em; color: #555; margin-bottom: 10px;"><strong>Examples:</strong> Cassandra, HBase</p>
+                        <p style="font-size: 0.85em; color: #666; margin-bottom: 10px;">Column groups, massive scale, high write throughput</p>
+                        <p style="font-size: 0.8em; color: #228B22;">✓ Petabyte scale</p>
+                        <p style="font-size: 0.8em; color: #B22222;">✗ Complex modeling</p>
+                        <div style="margin-top: 10px; padding: 8px; background: #f0f0f0; font-size: 0.8em;">
+                            <strong>Use:</strong> Time-series, IoT, logs
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header" style="font-size: 1em;"><span class="icon">🕸️</span> Graph</div>
+                        <p style="font-size: 0.85em; color: #555; margin-bottom: 10px;"><strong>Examples:</strong> Neo4j, Neptune</p>
+                        <p style="font-size: 0.85em; color: #666; margin-bottom: 10px;">Nodes and relationships, fast traversals, pattern matching</p>
+                        <p style="font-size: 0.8em; color: #228B22;">✓ Connected data</p>
+                        <p style="font-size: 0.8em; color: #B22222;">✗ Not for analytics</p>
+                        <div style="margin-top: 10px; padding: 8px; background: #f0f0f0; font-size: 0.8em;">
+                            <strong>Use:</strong> Social, fraud, recommendations
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box-light">
+                    <strong>For Data Scientists:</strong> You'll most commonly query SQL databases and use Redis for feature stores. Know when each type is appropriate.
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 27: Summary -->
+        <div class="slide" data-slide="27">
+            <div class="slide-content">
+                <h1>Course Summary</h1>
+                <div class="subtitle">Key takeaways for data scientists</div>
+                
+                <div class="content-grid" style="flex: 1;">
+                    <div class="section">
+                        <div class="section-header">🎯 Data Science Foundation</div>
+                        <ul class="item-list">
+                            <li>Data Science = Modeling + Computing + Domain</li>
+                            <li>Different emphasis → different roles</li>
+                            <li>Data Scientists bridge technical and business</li>
+                            <li>60-80% time spent on data preparation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header">📊 Data Understanding</div>
+                        <ul class="item-list">
+                            <li>Know data types: structured, semi, unstructured</li>
+                            <li>Understand data lineage and quality impacts</li>
+                            <li>Event architecture affects what you can analyze</li>
+                            <li>Quality issues at collection → analysis problems</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header">🚀 Big Data Technologies</div>
+                        <ul class="item-list">
+                            <li>3 V's: Volume, Velocity, Variety</li>
+                            <li>Horizontal scaling vs vertical scaling</li>
+                            <li>MapReduce: Map → Shuffle → Reduce</li>
+                            <li>Spark: In-memory, 10-100x faster for ML</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header">🗄️ Databases</div>
+                        <ul class="item-list">
+                            <li>SQL for structured data, complex queries</li>
+                            <li>NoSQL for flexibility, scale, specific patterns</li>
+                            <li>OLTP for transactions, OLAP for analytics</li>
+                            <li>Most companies use multiple database types</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    Start simple → Choose the right tool for the job → Master SQL first → Add big data tools when needed
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+            <span class="slide-counter"><span id="currentSlide">1</span> / 27</span>
+            <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 27;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            
+            if (n > totalSlides) { currentSlide = totalSlides; }
+            if (n < 1) { currentSlide = 1; }
+            
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            slides[currentSlide - 1].classList.add('active');
+            
+            document.getElementById('currentSlide').textContent = currentSlide;
+            
+            document.getElementById('prevBtn').disabled = (currentSlide === 1);
+            document.getElementById('nextBtn').disabled = (currentSlide === totalSlides);
+            
+            window.scrollTo(0, 0);
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
