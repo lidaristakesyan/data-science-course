@@ -9,12 +9,11 @@ Complete notes for the PA Academy Data Science course.
 
 ## Lecture Notes
 
-- [Lecture 01: Introduction to Data](Lecture01_data_and_sources.md)
-- [Lecture 01: Introduction to Big Data Ecosystem](Lecture01_big_data_ecosystem.md)
+- [Lecture 01: Introduction to Data Science](Lecture01_Intro.md)
 
 ## Slides
 
-- [Lecture 01 Slides](Lecture01_Slides.html)
+- [Lecture 01: Introduction to Data Science](Lecture01_Intro.html)
 
 
 
