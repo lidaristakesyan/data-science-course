@@ -13,7 +13,7 @@ Complete notes for the PA Academy Data Science course.
 
 ## Slides
 
-- [Lecture 01: Introduction to Data Science](Lecture01_Intro.html)
+- [Lecture 01: Introduction to Data Science](Lecture01_Intro_slides.html)
 
 
 
