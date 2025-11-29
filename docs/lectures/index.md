@@ -9,11 +9,11 @@ Complete notes for the PA Academy Data Science course.
 
 ## Lecture Notes
 
-- [Lecture 01: Introduction to Data Science Notes](Lecture01_Intro.md)
+- [L01: Data as a Building Block](Lecture01_Foundations.md)
 
 ## Slides
 
-- [Lecture 01: Introduction to Data Science](Lecture01_Intro_slides.html)
+- [LS01: Data as a Building Block](Lecture01_Intro_slides.html)
 
 
 
