@@ -25,7 +25,7 @@
     
     
       
-        <title>PART I: FOUNDATIONS OF DATA ENGINEERING - Data Science Course</title>
+        <title>Lecture 01: Data as a Building Block - Data Science Course</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#part-i-foundations-of-data-engineering" class="md-skip">
+        <a href="#lecture-01-data-as-a-building-block" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PART I: FOUNDATIONS OF DATA ENGINEERING
+              Lecture 01: Data as a Building Block
             
           </span>
         </div>
@@ -381,6 +381,548 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-i-foundations-of-data-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PART I: FOUNDATIONS OF DATA ENGINEERING
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PART I: FOUNDATIONS OF DATA ENGINEERING">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chapter-1-the-data-lifecycle-understanding-the-complete-journey" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chapter 1: The Data Lifecycle — Understanding the Complete Journey
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-introduction-why-data-engineering-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Introduction: Why Data Engineering Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-the-data-lifecycle-a-conceptual-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 The Data Lifecycle: A Conceptual Framework
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 The Data Lifecycle: A Conceptual Framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-the-eight-stages-of-the-data-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.1 The Eight Stages of the Data Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-stage-1-generation-where-data-originates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.2 Stage 1: Generation — Where Data Originates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2.2 Stage 1: Generation — Where Data Originates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sources-of-data-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources of Data Generation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-importance-of-understanding-data-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Importance of Understanding Data Generation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123-stage-2-collection-bringing-data-into-your-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.3 Stage 2: Collection — Bringing Data Into Your Systems
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2.3 Stage 2: Collection — Bringing Data Into Your Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#batch-vs-streaming-ingestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batch vs. Streaming Ingestion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-ingestion-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Ingestion Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124-stage-3-storage-persisting-data-for-future-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.4 Stage 3: Storage — Persisting Data for Future Use
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2.4 Stage 3: Storage — Persisting Data for Future Use">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-storage-landscape" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Storage Landscape
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#125-stage-4-transformation-making-data-useful" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.5 Stage 4: Transformation — Making Data Useful
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2.5 Stage 4: Transformation — Making Data Useful">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-transformation-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Transformation Spectrum
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-etl-vs-elt-paradigm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The ETL vs. ELT Paradigm
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#126-stage-5-analysis-extracting-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.6 Stage 5: Analysis — Extracting Insights
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#127-stage-6-serving-delivering-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.7 Stage 6: Serving — Delivering Value
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#128-stage-7-maintenance-ensuring-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.8 Stage 7: Maintenance — Ensuring Reliability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#129-stage-8-archival-managing-the-end-of-life" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.9 Stage 8: Archival — Managing the End of Life
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-roles-in-the-data-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Roles in the Data Ecosystem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 Roles in the Data Ecosystem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-the-core-data-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.1 The Core Data Roles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-the-evolving-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.2 The Evolving Boundaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-event-tracking-and-event-driven-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Event Tracking and Event-Driven Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 Event Tracking and Event-Driven Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141-what-is-an-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.1 What is an Event?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142-the-event-driven-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.2 The Event-Driven Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143-designing-an-event-taxonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.3 Designing an Event Taxonomy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4.3 Designing an Event Taxonomy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#event-naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event Naming Conventions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Event Categories
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#144-event-properties-and-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.4 Event Properties and Context
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4.4 Event Properties and Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#properties-vs-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties vs. Context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identity-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identity Resolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#145-from-events-to-features-the-data-science-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.5 From Events to Features: The Data Science Connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-summary-and-key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 Summary and Key Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.5 Summary and Key Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-data-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Data Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roles-in-the-data-ecosystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Roles in the Data Ecosystem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#events-as-foundational-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Events as Foundational Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-further-reading-and-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 Further Reading and Resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.6 Further Reading and Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#books" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Books
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#papers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Papers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#online-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Online Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.7 Exercises
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -399,9 +941,10 @@
   
 
 
-<h1 id="part-i-foundations-of-data-engineering">PART I: FOUNDATIONS OF DATA ENGINEERING<a class="headerlink" href="#part-i-foundations-of-data-engineering" title="Permanent link">&para;</a></h1>
+<h1 id="lecture-01-data-as-a-building-block">Lecture 01: Data as a Building Block<a class="headerlink" href="#lecture-01-data-as-a-building-block" title="Permanent link">&para;</a></h1>
+<h2 id="part-i-foundations-of-data-engineering">PART I: FOUNDATIONS OF DATA ENGINEERING<a class="headerlink" href="#part-i-foundations-of-data-engineering" title="Permanent link">&para;</a></h2>
+<h3 id="chapter-1-the-data-lifecycle-understanding-the-complete-journey">Chapter 1: The Data Lifecycle — Understanding the Complete Journey<a class="headerlink" href="#chapter-1-the-data-lifecycle-understanding-the-complete-journey" title="Permanent link">&para;</a></h3>
 <hr />
-<h1 id="chapter-1-the-data-lifecycle-understanding-the-complete-journey">Chapter 1: The Data Lifecycle — Understanding the Complete Journey<a class="headerlink" href="#chapter-1-the-data-lifecycle-understanding-the-complete-journey" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p><em>"Data is a precious thing and will last longer than the systems themselves."</em>
 — Tim Berners-Lee, inventor of the World Wide Web</p>
