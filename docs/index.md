@@ -11,7 +11,7 @@ This site contains:
 
 ## Structure
 
-- **Lectures** – theory and examples  
+- [**Lectures**][https://lidaristakesyan.github.io/data-science-course/lectures] – theory and examples  
 - **Notebooks** – hands-on code in Jupyter  
 - **Homework** – assignments and solutions  
 - **Slides** – PDF / HTML slides for each week
