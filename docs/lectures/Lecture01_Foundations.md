@@ -1,8 +1,10 @@
-# PART I: FOUNDATIONS OF DATA ENGINEERING
+# Lecture 01: Data as a Building Block
+
+## PART I: FOUNDATIONS OF DATA ENGINEERING
+
+### Chapter 1: The Data Lifecycle — Understanding the Complete Journey
 
 ---
-
-# Chapter 1: The Data Lifecycle — Understanding the Complete Journey
 
 > *"Data is a precious thing and will last longer than the systems themselves."*
 > — Tim Berners-Lee, inventor of the World Wide Web
