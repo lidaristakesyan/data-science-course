@@ -72,3 +72,6 @@ extra_javascript:
 nav:
   - Home: index.md
   - Lectures: lectures/
+nav:
+  - Home: index.md
+  - Homeworks: homeworks/
