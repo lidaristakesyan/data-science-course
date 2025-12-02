@@ -10,4 +10,4 @@ Instructor: [**Lida Aristakesyan**](https://www.linkedin.com/in/lida-aristakesya
 
 - 📚 [**Lecture notes & Slides**](lectures/index.md)
 - 💻 Code & notebooks 
-- 📝 Homework assignments & solutions  
+- 📝 [**Homework assignments & solutions**](homeworks/index.md)
