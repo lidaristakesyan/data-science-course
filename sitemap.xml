@@ -2,26 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://lidaristakesyan.github.io/data-science-course/</loc>
-         <lastmod>2025-12-02</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://lidaristakesyan.github.io/data-science-course/homeworks/</loc>
-         <lastmod>2025-12-02</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://lidaristakesyan.github.io/data-science-course/lectures/</loc>
-         <lastmod>2025-12-02</lastmod>
+         <lastmod>2025-12-07</lastmod>
+    </url>
+    <url>
+         <loc>https://lidaristakesyan.github.io/data-science-course/lectures/L2-L3-Relational_Database_Systems/</loc>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://lidaristakesyan.github.io/data-science-course/lectures/Lecture01_Foundations/</loc>
-         <lastmod>2025-12-02</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://lidaristakesyan.github.io/data-science-course/lectures/Lecture2_Relational_Databases/</loc>
-         <lastmod>2025-12-02</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
     <url>
          <loc>https://lidaristakesyan.github.io/data-science-course/lectures/course_outline/</loc>
-         <lastmod>2025-12-02</lastmod>
+         <lastmod>2025-12-07</lastmod>
     </url>
 </urlset>
