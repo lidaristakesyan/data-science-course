@@ -10,7 +10,7 @@ Complete notes for the PA Academy Data Science course.
 ## Lecture Notes
 
 - [L01: Data as a Building Block](Lecture01_Foundations.md)
-- [L02: Relational Databases](Lecture2_Relational_Databases.md)
+- [L02-L03: Relational Databases](L2-L3-Relational_Database_Systems.md)
 
 ## Slides
 
