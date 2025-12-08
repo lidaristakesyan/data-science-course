@@ -1,6 +1,6 @@
 # Course structure
 
-## Homeworks
+## Codes and Notebooks
 
 - [Practice01](https://colab.research.google.com/drive/1Q4achtH3EZFYXa-979vVoa091rrVur8b)
 
