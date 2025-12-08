@@ -75,3 +75,7 @@ nav:
 nav:
   - Home: index.md
   - Homeworks: homeworks/
+nav:
+  - Home: index.md
+  - Codes: codes/
+  

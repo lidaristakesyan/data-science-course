@@ -9,5 +9,5 @@ Instructor: [**Lida Aristakesyan**](https://www.linkedin.com/in/lida-aristakesya
 ## Structure
 
 - 📚 [**Lecture notes & Slides**](lectures/index.md)
-- 💻 [**Code & notebooks**] (codes/index.md)
+- 💻 [**Code & notebooks**](codes/index.md)
 - 📝 [**Homework assignments & solutions**](homeworks/index.md)
