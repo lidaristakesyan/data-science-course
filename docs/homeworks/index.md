@@ -1,6 +1,6 @@
 # Course structure
 
-## Homeworks
+## Codes and Notebooks
 
 - [HW1](sql_assignment.pdf)
 
