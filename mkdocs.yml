@@ -74,8 +74,9 @@ nav:
   - Lectures: lectures/
 nav:
   - Home: index.md
-  - Homeworks: homeworks/
+  - Codes: codes/
 nav:
   - Home: index.md
-  - Codes: codes/
+  - Homeworks: homeworks/
+
   
